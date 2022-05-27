@@ -17,6 +17,7 @@
 			{{ .Content }}
 		</section>
 
+		{{ if not .Params.disableComments }}
 		<script src="https://giscus.app/client.js"
 			data-repo="yangwujie/hugo-classroom"
 			data-repo-id="R_kgDOHZ0Z5w"
@@ -31,5 +32,6 @@
 			crossorigin="anonymous"
 			async>
 		</script>
+		{{ end }}
 	</article>
 {{ end }}
