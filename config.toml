@@ -8,3 +8,14 @@ author = "杨武杰"
 description = "一个试验性的教学网站"
 gh_url = "https://api.github.com/users"
 gh_user = "yangwujie"
+
+[permalinks]
+posts = "posts/:year/:month/:slug/"
+year = "/posts/:slug/"
+month = "/posts/:slug/"
+
+[taxonomies]
+year = "year"
+month = "month"
+tag = "tags"
+category = "categories"

@@ -1,0 +1,11 @@
+<article>
+	<header>
+		<h3>
+			<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		</h3>
+		<time>
+			{{ .Date | dateFormat "2006年1月2日" }}
+		</time>
+	</header>
+	{{ .Summary }}
+</article>
