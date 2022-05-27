@@ -1,0 +1,10 @@
+{{ define "main" }}
+	<h2>{{ .Title }}</h2>
+	{{ .Content }}
+	<h3>我的社交媒体账号</h3>
+	<ul>
+		{{ range .Site.Data.socialmedia.accounts }}
+			<li><a href="{{ .url }}">{{ .name }}</a></li>
+		{{ end }}
+	</ul>
+{{ end }}

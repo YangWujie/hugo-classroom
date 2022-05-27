@@ -2,3 +2,9 @@ baseURL = 'http://yangwujie.github.io/hugo-classroom/'
 languageCode = 'zh-cn'
 title = 'H@pPY'
 theme = "classroom"
+
+[params]
+author = "杨武杰"
+description = "一个试验性的教学网站"
+gh_url = "https://api.github.com/users"
+gh_user = "yangwujie"
