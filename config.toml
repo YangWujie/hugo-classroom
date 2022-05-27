@@ -1,7 +1,7 @@
 baseURL = 'http://yangwujie.github.io/hugo-classroom/'
 languageCode = 'zh-cn'
 title = 'H@pPY'
-theme = "classroom"
+theme = ["classroom", "reveal-hugo"]
 
 [params]
 author = "杨武杰"
@@ -19,3 +19,9 @@ year = "year"
 month = "month"
 tag = "tags"
 category = "categories"
+
+# for reveal-hugo
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
