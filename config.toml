@@ -1,3 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://yangwujie.github.io/hugo-classroom/'
 languageCode = 'zh-cn'
 title = 'H@pPY'
+theme = "classroom"
