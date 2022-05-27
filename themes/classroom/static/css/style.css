@@ -26,4 +26,16 @@ nav>a {
 	nav {
 		flex-direction: row;
 	}
+
+	.project-container {
+		display: flex;
+	}
+
+	.project-container .project-list {
+		width: 20%;
+	}
+
+	.project-container .project {
+		flex: 1;
+	}
 }
