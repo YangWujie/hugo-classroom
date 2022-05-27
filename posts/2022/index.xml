@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2022 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/posts/2022/</link>
+    <description>Recent content in 2022 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 18:35:42 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/posts/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自动在GitHub上生成和部署Hugo网站</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E8%87%AA%E5%8A%A8%E5%9C%A8github%E4%B8%8A%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2hugo%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 27 May 2022 18:35:42 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E8%87%AA%E5%8A%A8%E5%9C%A8github%E4%B8%8A%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2hugo%E7%BD%91%E7%AB%99/</guid>
+      <description>&lt;p&gt;利用GitHub Actions可以在GitHub上自动生成和部署Hugo网站，Cool!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Hugo里用markdown画出SVG图</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E9%87%8C%E7%94%A8markdown%E7%94%BB%E5%87%BAsvg%E5%9B%BE/</link>
+      <pubDate>Fri, 27 May 2022 18:27:29 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E9%87%8C%E7%94%A8markdown%E7%94%BB%E5%87%BAsvg%E5%9B%BE/</guid>
+      <description>&lt;p&gt;标记语言画图。&lt;a href=&#34;https://github.com/bep/goat&#34;&gt;GoAT&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>给Hugo网站增加评论功能</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%BB%99hugo%E7%BD%91%E7%AB%99%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 27 May 2022 17:32:04 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%BB%99hugo%E7%BD%91%E7%AB%99%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <description>&lt;p&gt;Hugo创建的是静态网站，自身无法实现评论功能。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客列表分页功能完成了</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%8D%9A%E5%AE%A2%E5%88%97%E8%A1%A8%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90%E4%BA%86/</link>
+      <pubDate>Fri, 27 May 2022 17:25:28 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%8D%9A%E5%AE%A2%E5%88%97%E8%A1%A8%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD%E5%AE%8C%E6%88%90%E4%BA%86/</guid>
+      <description>&lt;p&gt;博客列表分页功能完成！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中国人和美国人谁更牛逼？</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%92%8C%E7%BE%8E%E5%9B%BD%E4%BA%BA%E8%B0%81%E6%9B%B4%E7%89%9B%E9%80%BC/</link>
+      <pubDate>Fri, 27 May 2022 17:07:40 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%92%8C%E7%BE%8E%E5%9B%BD%E4%BA%BA%E8%B0%81%E6%9B%B4%E7%89%9B%E9%80%BC/</guid>
+      <description>中国人：“你们美国人真牛逼，根本不拿新冠当回事。”
+美国人：“不，不，还是你们中国人最牛逼，除了新冠，其他的都不是事儿。”</description>
+    </item>
+    
+    <item>
+      <title>用Hugo来管理教学和学习资料</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%94%A8hugo%E6%9D%A5%E7%AE%A1%E7%90%86%E6%95%99%E5%AD%A6%E5%92%8C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/</link>
+      <pubDate>Fri, 27 May 2022 16:57:36 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%94%A8hugo%E6%9D%A5%E7%AE%A1%E7%90%86%E6%95%99%E5%AD%A6%E5%92%8C%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/</guid>
+      <description>&lt;p&gt;经过一段时间探索，感觉各方面条件都具备了，用Hugo来管理教学和学习资料应该有非常好的效果。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在Hugo下做幻灯片</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E4%B8%8B%E5%81%9A%E5%B9%BB%E7%81%AF%E7%89%87/</link>
+      <pubDate>Fri, 27 May 2022 16:50:39 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E4%B8%8B%E5%81%9A%E5%B9%BB%E7%81%AF%E7%89%87/</guid>
+      <description>&lt;p&gt;昨天测试了一个Hugo主题&lt;a href=&#34;https://github.com/dzello/reveal-hugo&#34;&gt;reveal-hugo&lt;/a&gt;，是用来做幻灯片的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>灌个水</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%81%8C%E4%B8%AA%E6%B0%B4/</link>
+      <pubDate>Fri, 27 May 2022 16:48:10 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%81%8C%E4%B8%AA%E6%B0%B4/</guid>
+      <description>&lt;p&gt;博客别表功能完成了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>按年和按月生成博客列表</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E6%8C%89%E5%B9%B4%E5%92%8C%E6%8C%89%E6%9C%88%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Fri, 27 May 2022 16:28:51 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E6%8C%89%E5%B9%B4%E5%92%8C%E6%8C%89%E6%9C%88%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%88%97%E8%A1%A8/</guid>
+      <description>&lt;p&gt;一个小技巧。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/hello-world/</link>
+      <pubDate>Fri, 27 May 2022 15:45:18 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/hello-world/</guid>
+      <description>&lt;p&gt;用C语言写的&lt;code&gt;Hello World!&lt;/code&gt;程序。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/first-post/</link>
+      <pubDate>Fri, 27 May 2022 15:35:55 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/first-post/</guid>
+      <description>&lt;p&gt;概要&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

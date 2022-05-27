@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>静态网站 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+    <description>Recent content in 静态网站 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 17:32:04 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>给Hugo网站增加评论功能</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%BB%99hugo%E7%BD%91%E7%AB%99%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Fri, 27 May 2022 17:32:04 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E7%BB%99hugo%E7%BD%91%E7%AB%99%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <description>&lt;p&gt;Hugo创建的是静态网站，自身无法实现评论功能。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

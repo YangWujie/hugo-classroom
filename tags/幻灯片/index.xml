@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>幻灯片 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/%E5%B9%BB%E7%81%AF%E7%89%87/</link>
+    <description>Recent content in 幻灯片 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 16:50:39 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/%E5%B9%BB%E7%81%AF%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Hugo下做幻灯片</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E4%B8%8B%E5%81%9A%E5%B9%BB%E7%81%AF%E7%89%87/</link>
+      <pubDate>Fri, 27 May 2022 16:50:39 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E4%B8%8B%E5%81%9A%E5%B9%BB%E7%81%AF%E7%89%87/</guid>
+      <description>&lt;p&gt;昨天测试了一个Hugo主题&lt;a href=&#34;https://github.com/dzello/reveal-hugo&#34;&gt;reveal-hugo&lt;/a&gt;，是用来做幻灯片的。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

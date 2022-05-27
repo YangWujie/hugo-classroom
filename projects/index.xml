@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>项目 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/projects/</link>
+    <description>Recent content in 项目 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="http://yangwujie.github.io/hugo-classroom/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Classroom</title>
+      <link>http://yangwujie.github.io/hugo-classroom/projects/classroom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/projects/classroom/</guid>
+      <description>Description&amp;hellip;
+采用的技术  github hugo GoAT  </description>
+    </item>
+    
+    <item>
+      <title>Dpt</title>
+      <link>http://yangwujie.github.io/hugo-classroom/projects/dpt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/projects/dpt/</guid>
+      <description>Description&amp;hellip;
+采用的技术  DPDK Packet mmap Tuntap  </description>
+    </item>
+    
+    <item>
+      <title>Fiction</title>
+      <link>http://yangwujie.github.io/hugo-classroom/projects/fiction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/projects/fiction/</guid>
+      <description>项目Fiction的总结</description>
+    </item>
+    
+  </channel>
+</rss>

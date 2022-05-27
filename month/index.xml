@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Month on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/month/</link>
+    <description>Recent content in Month on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="http://yangwujie.github.io/hugo-classroom/month/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022/05</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

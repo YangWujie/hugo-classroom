@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>actions-hugo on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/actions-hugo/</link>
+    <description>Recent content in actions-hugo on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 18:35:42 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/actions-hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自动在GitHub上生成和部署Hugo网站</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E8%87%AA%E5%8A%A8%E5%9C%A8github%E4%B8%8A%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2hugo%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 27 May 2022 18:35:42 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E8%87%AA%E5%8A%A8%E5%9C%A8github%E4%B8%8A%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2hugo%E7%BD%91%E7%AB%99/</guid>
+      <description>&lt;p&gt;利用GitHub Actions可以在GitHub上自动生成和部署Hugo网站，Cool!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

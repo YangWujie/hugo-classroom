@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>图表 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/%E5%9B%BE%E8%A1%A8/</link>
+    <description>Recent content in 图表 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 18:27:29 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/%E5%9B%BE%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Hugo里用markdown画出SVG图</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E9%87%8C%E7%94%A8markdown%E7%94%BB%E5%87%BAsvg%E5%9B%BE/</link>
+      <pubDate>Fri, 27 May 2022 18:27:29 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/%E5%9C%A8hugo%E9%87%8C%E7%94%A8markdown%E7%94%BB%E5%87%BAsvg%E5%9B%BE/</guid>
+      <description>&lt;p&gt;标记语言画图。&lt;a href=&#34;https://github.com/bep/goat&#34;&gt;GoAT&lt;/a&gt;!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

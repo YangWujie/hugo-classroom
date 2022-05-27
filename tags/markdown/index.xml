@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>markdown on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/markdown/</link>
+    <description>Recent content in markdown on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 15:45:18 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/hello-world/</link>
+      <pubDate>Fri, 27 May 2022 15:45:18 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/hello-world/</guid>
+      <description>&lt;p&gt;用C语言写的&lt;code&gt;Hello World!&lt;/code&gt;程序。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
