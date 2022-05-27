@@ -8,20 +8,29 @@
     <language>zh-cn</language>
     <lastBuildDate>Fri, 27 May 2022 16:01:33 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hugo</title>
+      <link>http://yangwujie.github.io/hugo-classroom/tags/hugo/</link>
+      <pubDate>Fri, 27 May 2022 20:34:34 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reveal-hugo</title>
+      <link>http://yangwujie.github.io/hugo-classroom/tags/reveal-hugo/</link>
+      <pubDate>Fri, 27 May 2022 20:34:34 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/tags/reveal-hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>giscus</title>
       <link>http://yangwujie.github.io/hugo-classroom/tags/giscus/</link>
       <pubDate>Fri, 27 May 2022 19:02:05 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/tags/giscus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://yangwujie.github.io/hugo-classroom/tags/hugo/</link>
-      <pubDate>Fri, 27 May 2022 19:02:05 +0800</pubDate>
-      
-      <guid>http://yangwujie.github.io/hugo-classroom/tags/hugo/</guid>
       <description></description>
     </item>
     

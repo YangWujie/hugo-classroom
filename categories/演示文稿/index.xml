@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>演示文稿 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/</link>
+    <description>Recent content in 演示文稿 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 20:24:04 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello</title>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/hello/</link>
+      <pubDate>Fri, 27 May 2022 20:24:04 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/hello/</guid>
+      <description>Hello Hugo!  #include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello Wrold!\n); 	return 0; }            &amp;lt; ! - - . s l i d e : d a t a - b a c k g r o u n d = &#34; # F F 4 0 8 1 &#34;             Hello Hugo!</description>
+    </item>
+    
+  </channel>
+</rss>

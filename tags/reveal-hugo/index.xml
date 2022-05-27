@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reveal-hugo on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/reveal-hugo/</link>
+    <description>Recent content in reveal-hugo on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 20:34:34 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/reveal-hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reveal Hugo</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/reveal-hugo/</link>
+      <pubDate>Fri, 27 May 2022 20:34:34 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/reveal-hugo/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/dzello/reveal-hugo&#34;&gt;reveal-hugo&lt;/a&gt;顺利安装。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
