@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/rust/</link>
+    <description>Recent content in rust on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 22:35:40 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Edge Devtools</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/edge-devtools/</link>
+      <pubDate>Fri, 27 May 2022 22:35:40 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/edge-devtools/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/landing/&#34;&gt;Microsoft Edge DevTools documentation&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

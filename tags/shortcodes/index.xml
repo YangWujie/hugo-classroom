@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shortcodes on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/shortcodes/</link>
+    <description>Recent content in shortcodes on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 28 May 2022 13:19:54 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/shortcodes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Youtube播放</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/youtube%E6%92%AD%E6%94%BE/</link>
+      <pubDate>Sat, 28 May 2022 13:19:54 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/youtube%E6%92%AD%E6%94%BE/</guid>
+      <description>&lt;p&gt;Hugo shortcodes演示。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
