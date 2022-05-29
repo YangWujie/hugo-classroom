@@ -1,151 +1,291 @@
-<!DOCTYPE html>
-<html lang="zh-Hans"><head>
-	<meta charset="utf-8">
-	<meta name="author" content="杨武杰">
-	<meta name="description" content="一个试验性的教学网站">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>H@pPY</title>
-	
-	
-	<link rel="stylesheet" href="/hugo-classroom/css/style.ec84de57784db0e125fe28b463ec8f627492e8f3282ca203f323394b8f07718a.css">
-</head><body>
-		<div class="container"><header>
-	<h1>H@pPY</h1>
-</header>
-<nav>
-	<a href="/hugo-classroom/">主页</a>
-	<a href="/hugo-classroom/slides">演示文稿</a>
-	<a href="/hugo-classroom/posts">博客</a>
-	<a href="/hugo-classroom/projects">项目</a>
-	<a href="/hugo-classroom/about">关于</a>
-</nav><main>
-	<article class="post">
-		<header>
-			<h2>在Hugo里用markdown画出SVG图</h2>
-			<p>杨武杰</p>
-			<p>2022年5月27日
-				<span class="tags">
-					
-						
-						<a class="tag" href="/hugo-classroom/tags/hugo">Hugo</a>
-					
-						
-						<a class="tag" href="/hugo-classroom/tags/goat">GoAT</a>
-					
-						
-						<a class="tag" href="/hugo-classroom/tags/svg">SVG</a>
-					
-						
-						<a class="tag" href="/hugo-classroom/tags/%E5%9B%BE%E8%A1%A8">图表</a>
-					
-				</span>
-			</p>
-			<p>预计阅读时间：1分钟</p>
-		</header>
-		<section class="body">
-			<p>标记语言画图。<a href="https://github.com/bep/goat">GoAT</a>!</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Test Goat</title>
+<meta name="description" content="一个试验性的教学网站">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reveal.css"><link rel="stylesheet" href="/hugo-classroom/reveal-js/css/theme/black.css" id="theme">
+<link rel="stylesheet" href="/hugo-classroom/highlight-js/default.min.css">
+    
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section></section><section>
+<h1 id="hello-hugo">Hello Hugo!</h1>
+</section><section>
+
+
+
 <div class="goat svg-container ">
   
     <svg
       xmlns="http://www.w3.org/2000/svg"
       font-family="Menlo,Lucida Console,monospace"
       
-        viewBox="0 0 680 121"
+        viewBox="0 0 736 185"
       >
       <g transform='translate(8,16)'>
-<path d='M 440,0 L 464,0' fill='none' stroke='currentColor'></path>
-<path d='M 576,0 L 584,0' fill='none' stroke='currentColor'></path>
-<path d='M 408,16 L 440,16' fill='none' stroke='currentColor'></path>
-<path d='M 552,16 L 560,16' fill='none' stroke='currentColor'></path>
-<path d='M 144,32 L 176,32' fill='none' stroke='currentColor'></path>
-<path d='M 176,32 L 208,32' fill='none' stroke='currentColor'></path>
-<path d='M 296,32 L 312,32' fill='none' stroke='currentColor'></path>
-<path d='M 312,32 L 328,32' fill='none' stroke='currentColor'></path>
-<path d='M 440,32 L 464,32' fill='none' stroke='currentColor'></path>
-<path d='M 576,32 L 584,32' fill='none' stroke='currentColor'></path>
-<path d='M 384,48 L 408,48' fill='none' stroke='currentColor'></path>
-<path d='M 512,48 L 536,48' fill='none' stroke='currentColor'></path>
-<path d='M 128,64 L 144,64' fill='none' stroke='currentColor'></path>
-<path d='M 144,64 L 160,64' fill='none' stroke='currentColor'></path>
-<path d='M 192,64 L 208,64' fill='none' stroke='currentColor'></path>
-<path d='M 208,64 L 224,64' fill='none' stroke='currentColor'></path>
-<path d='M 440,64 L 464,64' fill='none' stroke='currentColor'></path>
-<path d='M 576,64 L 584,64' fill='none' stroke='currentColor'></path>
-<path d='M 408,80 L 440,80' fill='none' stroke='currentColor'></path>
-<path d='M 552,80 L 560,80' fill='none' stroke='currentColor'></path>
-<path d='M 440,96 L 464,96' fill='none' stroke='currentColor'></path>
-<path d='M 576,96 L 584,96' fill='none' stroke='currentColor'></path>
-<path d='M 128,64 L 128,80' fill='none' stroke='currentColor'></path>
-<path d='M 144,32 L 144,64' fill='none' stroke='currentColor'></path>
-<path d='M 160,64 L 160,80' fill='none' stroke='currentColor'></path>
-<path d='M 176,0 L 176,32' fill='none' stroke='currentColor'></path>
-<path d='M 192,64 L 192,80' fill='none' stroke='currentColor'></path>
-<path d='M 208,32 L 208,64' fill='none' stroke='currentColor'></path>
-<path d='M 224,64 L 224,80' fill='none' stroke='currentColor'></path>
-<path d='M 280,48 L 280,64' fill='none' stroke='currentColor'></path>
-<path d='M 312,0 L 312,32' fill='none' stroke='currentColor'></path>
-<path d='M 344,48 L 344,64' fill='none' stroke='currentColor'></path>
-<path d='M 408,16 L 408,48' fill='none' stroke='currentColor'></path>
-<path d='M 408,48 L 408,80' fill='none' stroke='currentColor'></path>
-<path d='M 440,0 L 440,16' fill='none' stroke='currentColor'></path>
-<path d='M 440,16 L 440,32' fill='none' stroke='currentColor'></path>
-<path d='M 440,64 L 440,80' fill='none' stroke='currentColor'></path>
-<path d='M 440,80 L 440,96' fill='none' stroke='currentColor'></path>
-<path d='M 536,32 L 536,48' fill='none' stroke='currentColor'></path>
-<path d='M 536,48 L 536,64' fill='none' stroke='currentColor'></path>
-<path d='M 8,80 L 24,48' fill='none' stroke='currentColor'></path>
-<path d='M 24,48 L 48,0' fill='none' stroke='currentColor'></path>
-<path d='M 56,80 L 72,48' fill='none' stroke='currentColor'></path>
-<path d='M 624,48 L 640,16' fill='none' stroke='currentColor'></path>
-<path d='M 640,16 L 648,0' fill='none' stroke='currentColor'></path>
-<path d='M 640,80 L 648,64' fill='none' stroke='currentColor'></path>
-<path d='M 24,48 L 40,80' fill='none' stroke='currentColor'></path>
-<path d='M 48,0 L 72,48' fill='none' stroke='currentColor'></path>
-<path d='M 72,48 L 88,80' fill='none' stroke='currentColor'></path>
-<path d='M 624,48 L 640,80' fill='none' stroke='currentColor'></path>
-<path d='M 640,80 L 648,96' fill='none' stroke='currentColor'></path>
-<path d='M 640,16 L 648,32' fill='none' stroke='currentColor'></path>
-<path d='M 576,0 A 16,16 0 0,0 560,16' fill='none' stroke='currentColor'></path>
-<path d='M 552,16 A 16,16 0 0,0 536,32' fill='none' stroke='currentColor'></path>
-<path d='M 296,32 A 16,16 0 0,0 280,48' fill='none' stroke='currentColor'></path>
-<path d='M 328,32 A 16,16 0 0,1 344,48' fill='none' stroke='currentColor'></path>
-<path d='M 560,16 A 16,16 0 0,0 576,32' fill='none' stroke='currentColor'></path>
-<path d='M 280,64 A 16,16 0 0,0 264,80' fill='none' stroke='currentColor'></path>
-<path d='M 280,64 A 16,16 0 0,1 296,80' fill='none' stroke='currentColor'></path>
-<path d='M 344,64 A 16,16 0 0,0 328,80' fill='none' stroke='currentColor'></path>
-<path d='M 344,64 A 16,16 0 0,1 360,80' fill='none' stroke='currentColor'></path>
-<path d='M 576,64 A 16,16 0 0,0 560,80' fill='none' stroke='currentColor'></path>
-<path d='M 536,64 A 16,16 0 0,0 552,80' fill='none' stroke='currentColor'></path>
-<path d='M 560,80 A 16,16 0 0,0 576,96' fill='none' stroke='currentColor'></path>
-<text text-anchor='middle' x='8' y='100' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='40' y='100' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='56' y='100' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='88' y='100' fill='currentColor' style='font-size:1em'>4</text>
-<text text-anchor='middle' x='128' y='100' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='160' y='100' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='192' y='100' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='224' y='100' fill='currentColor' style='font-size:1em'>4</text>
-<text text-anchor='middle' x='264' y='100' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='296' y='100' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='328' y='100' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='360' y='100' fill='currentColor' style='font-size:1em'>4</text>
-<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='480' y='36' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='480' y='68' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='480' y='100' fill='currentColor' style='font-size:1em'>4</text>
-<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='600' y='36' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='600' y='68' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='600' y='100' fill='currentColor' style='font-size:1em'>4</text>
-<text text-anchor='middle' x='664' y='4' fill='currentColor' style='font-size:1em'>1</text>
-<text text-anchor='middle' x='664' y='36' fill='currentColor' style='font-size:1em'>2</text>
-<text text-anchor='middle' x='664' y='68' fill='currentColor' style='font-size:1em'>3</text>
-<text text-anchor='middle' x='664' y='100' fill='currentColor' style='font-size:1em'>4</text>
+<path d='M 32,0 L 72,0' fill='none' stroke='currentColor'></path>
+<path d='M 144,0 L 184,0' fill='none' stroke='currentColor'></path>
+<path d='M 296,16 L 344,16' fill='none' stroke='currentColor'></path>
+<path d='M 344,16 L 392,16' fill='none' stroke='currentColor'></path>
+<path d='M 392,16 L 440,16' fill='none' stroke='currentColor'></path>
+<path d='M 88,32 L 128,32' fill='none' stroke='currentColor'></path>
+<path d='M 200,32 L 240,32' fill='none' stroke='currentColor'></path>
+<path d='M 528,32 L 576,32' fill='none' stroke='currentColor'></path>
+<path d='M 576,32 L 624,32' fill='none' stroke='currentColor'></path>
+<path d='M 624,32 L 672,32' fill='none' stroke='currentColor'></path>
+<path d='M 672,32 L 720,32' fill='none' stroke='currentColor'></path>
+<path d='M 32,64 L 72,64' fill='none' stroke='currentColor'></path>
+<path d='M 144,64 L 184,64' fill='none' stroke='currentColor'></path>
+<path d='M 296,64 L 344,64' fill='none' stroke='currentColor'></path>
+<path d='M 344,64 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,64 L 440,64' fill='none' stroke='currentColor'></path>
+<path d='M 512,64 L 560,64' fill='none' stroke='currentColor'></path>
+<path d='M 560,64 L 608,64' fill='none' stroke='currentColor'></path>
+<path d='M 608,64 L 656,64' fill='none' stroke='currentColor'></path>
+<path d='M 656,64 L 704,64' fill='none' stroke='currentColor'></path>
+<path d='M 88,96 L 128,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 240,96' fill='none' stroke='currentColor'></path>
+<path d='M 496,96 L 544,96' fill='none' stroke='currentColor'></path>
+<path d='M 544,96 L 592,96' fill='none' stroke='currentColor'></path>
+<path d='M 592,96 L 640,96' fill='none' stroke='currentColor'></path>
+<path d='M 640,96 L 688,96' fill='none' stroke='currentColor'></path>
+<path d='M 296,112 L 344,112' fill='none' stroke='currentColor'></path>
+<path d='M 344,112 L 392,112' fill='none' stroke='currentColor'></path>
+<path d='M 392,112 L 440,112' fill='none' stroke='currentColor'></path>
+<path d='M 32,128 L 72,128' fill='none' stroke='currentColor'></path>
+<path d='M 144,128 L 184,128' fill='none' stroke='currentColor'></path>
+<path d='M 480,128 L 528,128' fill='none' stroke='currentColor'></path>
+<path d='M 528,128 L 576,128' fill='none' stroke='currentColor'></path>
+<path d='M 576,128 L 624,128' fill='none' stroke='currentColor'></path>
+<path d='M 624,128 L 672,128' fill='none' stroke='currentColor'></path>
+<path d='M 88,160 L 128,160' fill='none' stroke='currentColor'></path>
+<path d='M 200,160 L 240,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 344,160' fill='none' stroke='currentColor'></path>
+<path d='M 344,160 L 392,160' fill='none' stroke='currentColor'></path>
+<path d='M 392,160 L 440,160' fill='none' stroke='currentColor'></path>
+<path d='M 464,160 L 512,160' fill='none' stroke='currentColor'></path>
+<path d='M 512,160 L 560,160' fill='none' stroke='currentColor'></path>
+<path d='M 560,160 L 608,160' fill='none' stroke='currentColor'></path>
+<path d='M 608,160 L 656,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,16 L 296,64' fill='none' stroke='currentColor'></path>
+<path d='M 296,64 L 296,112' fill='none' stroke='currentColor'></path>
+<path d='M 296,112 L 296,160' fill='none' stroke='currentColor'></path>
+<path d='M 344,16 L 344,64' fill='none' stroke='currentColor'></path>
+<path d='M 344,64 L 344,112' fill='none' stroke='currentColor'></path>
+<path d='M 344,112 L 344,160' fill='none' stroke='currentColor'></path>
+<path d='M 392,16 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,64 L 392,112' fill='none' stroke='currentColor'></path>
+<path d='M 392,112 L 392,160' fill='none' stroke='currentColor'></path>
+<path d='M 440,16 L 440,64' fill='none' stroke='currentColor'></path>
+<path d='M 440,64 L 440,112' fill='none' stroke='currentColor'></path>
+<path d='M 440,112 L 440,160' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 32,0' fill='none' stroke='currentColor'></path>
+<path d='M 16,96 L 32,64' fill='none' stroke='currentColor'></path>
+<path d='M 72,64 L 88,32' fill='none' stroke='currentColor'></path>
+<path d='M 72,128 L 88,96' fill='none' stroke='currentColor'></path>
+<path d='M 128,32 L 144,0' fill='none' stroke='currentColor'></path>
+<path d='M 128,96 L 144,64' fill='none' stroke='currentColor'></path>
+<path d='M 128,160 L 144,128' fill='none' stroke='currentColor'></path>
+<path d='M 184,64 L 200,32' fill='none' stroke='currentColor'></path>
+<path d='M 184,128 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 240,96 L 256,64' fill='none' stroke='currentColor'></path>
+<path d='M 240,160 L 256,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,160 L 480,128' fill='none' stroke='currentColor'></path>
+<path d='M 480,128 L 496,96' fill='none' stroke='currentColor'></path>
+<path d='M 496,96 L 512,64' fill='none' stroke='currentColor'></path>
+<path d='M 512,64 L 528,32' fill='none' stroke='currentColor'></path>
+<path d='M 512,160 L 528,128' fill='none' stroke='currentColor'></path>
+<path d='M 528,128 L 544,96' fill='none' stroke='currentColor'></path>
+<path d='M 544,96 L 560,64' fill='none' stroke='currentColor'></path>
+<path d='M 560,64 L 576,32' fill='none' stroke='currentColor'></path>
+<path d='M 560,160 L 576,128' fill='none' stroke='currentColor'></path>
+<path d='M 576,128 L 592,96' fill='none' stroke='currentColor'></path>
+<path d='M 592,96 L 608,64' fill='none' stroke='currentColor'></path>
+<path d='M 608,64 L 624,32' fill='none' stroke='currentColor'></path>
+<path d='M 608,160 L 624,128' fill='none' stroke='currentColor'></path>
+<path d='M 624,128 L 640,96' fill='none' stroke='currentColor'></path>
+<path d='M 640,96 L 656,64' fill='none' stroke='currentColor'></path>
+<path d='M 656,64 L 672,32' fill='none' stroke='currentColor'></path>
+<path d='M 656,160 L 672,128' fill='none' stroke='currentColor'></path>
+<path d='M 672,128 L 688,96' fill='none' stroke='currentColor'></path>
+<path d='M 688,96 L 704,64' fill='none' stroke='currentColor'></path>
+<path d='M 704,64 L 720,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,96 L 32,128' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 32,64' fill='none' stroke='currentColor'></path>
+<path d='M 72,128 L 88,160' fill='none' stroke='currentColor'></path>
+<path d='M 72,64 L 88,96' fill='none' stroke='currentColor'></path>
+<path d='M 72,0 L 88,32' fill='none' stroke='currentColor'></path>
+<path d='M 128,96 L 144,128' fill='none' stroke='currentColor'></path>
+<path d='M 128,32 L 144,64' fill='none' stroke='currentColor'></path>
+<path d='M 184,128 L 200,160' fill='none' stroke='currentColor'></path>
+<path d='M 184,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 184,0 L 200,32' fill='none' stroke='currentColor'></path>
+<path d='M 240,96 L 256,128' fill='none' stroke='currentColor'></path>
+<path d='M 240,32 L 256,64' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='48' y='100' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='104' y='68' fill='currentColor' style='font-size:1em'>B</text>
+<text text-anchor='middle' x='320' y='148' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='368' y='100' fill='currentColor' style='font-size:1em'>B</text>
+<text text-anchor='middle' x='560' y='116' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='608' y='116' fill='currentColor' style='font-size:1em'>B</text>
 </g>
 
     </svg>
   
 </div>
+</section><section>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 680 281"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 344,16 L 368,16' fill='none' stroke='currentColor'></path>
+<path d='M 384,32 L 472,32' fill='none' stroke='currentColor'></path>
+<path d='M 472,32 L 536,32' fill='none' stroke='currentColor'></path>
+<path d='M 344,48 L 368,48' fill='none' stroke='currentColor'></path>
+<path d='M 296,80 L 408,80' fill='none' stroke='currentColor'></path>
+<path d='M 128,96 L 256,96' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 312,112' fill='none' stroke='currentColor'></path>
+<path d='M 360,112 L 408,112' fill='none' stroke='currentColor'></path>
+<path d='M 408,112 L 472,112' fill='none' stroke='currentColor'></path>
+<path d='M 344,128 L 368,128' fill='none' stroke='currentColor'></path>
+<path d='M 576,128 L 592,128' fill='none' stroke='currentColor'></path>
+<path d='M 128,144 L 152,144' fill='none' stroke='currentColor'></path>
+<path d='M 152,144 L 184,144' fill='none' stroke='currentColor'></path>
+<path d='M 208,144 L 232,144' fill='none' stroke='currentColor'></path>
+<path d='M 384,144 L 408,144' fill='none' stroke='currentColor'></path>
+<path d='M 408,144 L 432,144' fill='none' stroke='currentColor'></path>
+<path d='M 464,144 L 488,144' fill='none' stroke='currentColor'></path>
+<path d='M 608,144 L 648,144' fill='none' stroke='currentColor'></path>
+<path d='M 248,160 L 288,160' fill='none' stroke='currentColor'></path>
+<path d='M 288,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 344,160 L 368,160' fill='none' stroke='currentColor'></path>
+<path d='M 504,160 L 536,160' fill='none' stroke='currentColor'></path>
+<path d='M 576,160 L 592,160' fill='none' stroke='currentColor'></path>
+<path d='M 128,176 L 184,176' fill='none' stroke='currentColor'></path>
+<path d='M 208,176 L 232,176' fill='none' stroke='currentColor'></path>
+<path d='M 472,176 L 488,176' fill='none' stroke='currentColor'></path>
+<path d='M 288,256 L 408,256' fill='none' stroke='currentColor'></path>
+<path d='M 256,8 L 296,8' fill='none' stroke='currentColor'></path>
+<path d='M 296,24 L 344,24' fill='none' stroke='currentColor'></path>
+<path d='M 296,40 L 344,40' fill='none' stroke='currentColor'></path>
+<path d='M 516,56 L 536,56' fill='none' stroke='currentColor'></path>
+<path d='M 536,56 L 556,56' fill='none' stroke='currentColor'></path>
+<path d='M 236,72 L 276,72' fill='none' stroke='currentColor'></path>
+<path d='M 312,136 L 344,136' fill='none' stroke='currentColor'></path>
+<path d='M 536,136 L 560,136' fill='none' stroke='currentColor'></path>
+<path d='M 184,152 L 208,152' fill='none' stroke='currentColor'></path>
+<path d='M 312,152 L 344,152' fill='none' stroke='currentColor'></path>
+<path d='M 432,152 L 448,152' fill='none' stroke='currentColor'></path>
+<path d='M 536,152 L 568,152' fill='none' stroke='currentColor'></path>
+<path d='M 184,168 L 208,168' fill='none' stroke='currentColor'></path>
+<path d='M 408,168 L 464,168' fill='none' stroke='currentColor'></path>
+<path d='M 388,232 L 428,232' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 152,144' fill='none' stroke='currentColor'></path>
+<path d='M 208,144 L 208,176' fill='none' stroke='currentColor'></path>
+<path d='M 256,16 L 256,32' fill='none' stroke='currentColor'></path>
+<path d='M 256,80 L 256,96' fill='none' stroke='currentColor'></path>
+<path d='M 288,160 L 288,256' fill='none' stroke='currentColor'></path>
+<path d='M 296,8 L 296,24' fill='none' stroke='currentColor'></path>
+<path d='M 296,48 L 296,80' fill='none' stroke='currentColor'></path>
+<path d='M 312,112 L 312,128' fill='none' stroke='currentColor'></path>
+<path d='M 344,16 L 344,48' fill='none' stroke='currentColor'></path>
+<path d='M 344,128 L 344,160' fill='none' stroke='currentColor'></path>
+<path d='M 408,80 L 408,96' fill='none' stroke='currentColor'></path>
+<path d='M 408,128 L 408,144' fill='none' stroke='currentColor'></path>
+<path d='M 408,176 L 408,192' fill='none' stroke='currentColor'></path>
+<path d='M 408,240 L 408,256' fill='none' stroke='currentColor'></path>
+<path d='M 472,0 L 472,16' fill='none' stroke='currentColor'></path>
+<path d='M 472,48 L 472,112' fill='none' stroke='currentColor'></path>
+<path d='M 536,32 L 536,48' fill='none' stroke='currentColor'></path>
+<path d='M 536,96 L 536,128' fill='none' stroke='currentColor'></path>
+<path d='M 236,72 L 256,32' fill='none' stroke='currentColor'></path>
+<path d='M 388,232 L 408,192' fill='none' stroke='currentColor'></path>
+<path d='M 536,96 L 556,56' fill='none' stroke='currentColor'></path>
+<path d='M 256,32 L 276,72' fill='none' stroke='currentColor'></path>
+<path d='M 408,192 L 428,232' fill='none' stroke='currentColor'></path>
+<path d='M 516,56 L 536,96' fill='none' stroke='currentColor'></path>
+<path d='M 184,144 L 184,152' fill='none' stroke='currentColor'></path>
+<path d='M 184,168 L 184,176' fill='none' stroke='currentColor'></path>
+<path d='M 208,144 L 208,152' fill='none' stroke='currentColor'></path>
+<path d='M 208,152 L 208,160' fill='none' stroke='currentColor'></path>
+<path d='M 208,168 L 208,176' fill='none' stroke='currentColor'></path>
+<path d='M 256,8 L 256,16' fill='none' stroke='currentColor'></path>
+<path d='M 256,72 L 256,80' fill='none' stroke='currentColor'></path>
+<path d='M 296,8 L 296,16' fill='none' stroke='currentColor'></path>
+<path d='M 296,40 L 296,48' fill='none' stroke='currentColor'></path>
+<path d='M 312,128 L 312,136' fill='none' stroke='currentColor'></path>
+<path d='M 312,152 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 344,16 L 344,24' fill='none' stroke='currentColor'></path>
+<path d='M 344,24 L 344,32' fill='none' stroke='currentColor'></path>
+<path d='M 344,40 L 344,48' fill='none' stroke='currentColor'></path>
+<path d='M 344,128 L 344,136' fill='none' stroke='currentColor'></path>
+<path d='M 344,136 L 344,144' fill='none' stroke='currentColor'></path>
+<path d='M 344,152 L 344,160' fill='none' stroke='currentColor'></path>
+<path d='M 408,168 L 408,176' fill='none' stroke='currentColor'></path>
+<path d='M 408,232 L 408,240' fill='none' stroke='currentColor'></path>
+<path d='M 432,144 L 432,152' fill='none' stroke='currentColor'></path>
+<path d='M 536,48 L 536,56' fill='none' stroke='currentColor'></path>
+<path d='M 536,128 L 536,136' fill='none' stroke='currentColor'></path>
+<path d='M 536,152 L 536,160' fill='none' stroke='currentColor'></path>
+<path d='M 368,16 A 16,16 0 0,1 384,32' fill='none' stroke='currentColor'></path>
+<path d='M 384,32 A 16,16 0 0,1 368,48' fill='none' stroke='currentColor'></path>
+<path d='M 368,128 A 16,16 0 0,1 384,144' fill='none' stroke='currentColor'></path>
+<path d='M 560,128 A 16,16 0 0,1 576,144' fill='none' stroke='currentColor'></path>
+<path d='M 592,128 A 16,16 0 0,1 608,144' fill='none' stroke='currentColor'></path>
+<path d='M 232,144 A 16,16 0 0,1 248,160' fill='none' stroke='currentColor'></path>
+<path d='M 448,144 A 16,16 0 0,1 464,160' fill='none' stroke='currentColor'></path>
+<path d='M 488,144 A 16,16 0 0,1 504,160' fill='none' stroke='currentColor'></path>
+<path d='M 384,144 A 16,16 0 0,1 368,160' fill='none' stroke='currentColor'></path>
+<path d='M 576,144 A 16,16 0 0,1 560,160' fill='none' stroke='currentColor'></path>
+<path d='M 608,144 A 16,16 0 0,1 592,160' fill='none' stroke='currentColor'></path>
+<path d='M 248,160 A 16,16 0 0,1 232,176' fill='none' stroke='currentColor'></path>
+<path d='M 464,160 A 16,16 0 0,1 448,176' fill='none' stroke='currentColor'></path>
+<path d='M 472,160 A 16,16 0 0,1 456,176' fill='none' stroke='currentColor'></path>
+<path d='M 504,160 A 16,16 0 0,1 488,176' fill='none' stroke='currentColor'></path>
+<circle cx='152' cy='144' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='248' cy='160' r='6' stroke='currentColor' fill='#fff'></circle>
+<circle cx='256' cy='32' r='6' stroke='currentColor' fill='#fff'></circle>
+<circle cx='288' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='360' cy='112' r='6' stroke='currentColor' fill='#fff'></circle>
+<circle cx='408' cy='144' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='408' cy='192' r='6' stroke='currentColor' fill='#fff'></circle>
+<circle cx='472' cy='0' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='536' cy='96' r='6' stroke='currentColor' fill='#fff'></circle>
+<path d='M 472,16 L 472,24' fill='none' stroke='currentColor'></path>
+<path d='M 472,40 L 472,48' fill='none' stroke='currentColor'></path>
+<path d='M 472,24 A 9,9 0 0,1 472,40' fill='none' stroke='currentColor'></path>
+<path d='M 408,96 L 408,104' fill='none' stroke='currentColor'></path>
+<path d='M 408,120 L 408,128' fill='none' stroke='currentColor'></path>
+<path d='M 408,104 A 9,9 0 0,1 408,120' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='112' y='100' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='112' y='148' fill='currentColor' style='font-size:1em'>B</text>
+<text text-anchor='middle' x='112' y='180' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='664' y='148' fill='currentColor' style='font-size:1em'>Y</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
 
 
 
@@ -573,34 +713,162 @@
     </svg>
   
 </div>
-			
-		</section>
+</section>
 
-		
-		<script src="https://giscus.app/client.js"
-			data-repo="yangwujie/hugo-classroom"
-			data-repo-id="R_kgDOHZ0Z5w"
-			data-category="Announcements"
-			data-category-id="DIC_kwDOHZ0Z584CPUmU"
-			data-mapping="pathname"
-			data-reactions-enabled="1"
-			data-emit-metadata="0"
-			data-input-position="bottom"
-			data-theme="light"
-			data-lang="zh-CN"
-			crossorigin="anonymous"
-			async>
-		</script>
-		
-	</article>
+  
 
-			</main><footer>
-	<small>Copyright 2022 Yang</small>
-	<p>Powered by<br>
-		<a href="https://gohugo.io">
-		<img src="/hugo-classroom/hugo-logo-wide.svg" width="128" height="38">
-		</a>
-	</p>
-</footer></div>
-    </body>
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/hugo-classroom/reveal-hugo/object-assign.js></script>
+
+<a href="/hugo-classroom/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">null</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/hugo-classroom/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    Reveal.addEventListener('slidechanged', render);
+    Reveal.addEventListener('ready', render);
+  </script>
+
+    
+    
+  </body>
 </html>

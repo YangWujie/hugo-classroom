@@ -6,14 +6,23 @@
     <description>Recent content in 演示文稿 on H@pPY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 May 2022 22:20:58 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 May 2022 22:27:37 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>Test Goat</title>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/test-goat/</link>
+      <pubDate>Sat, 28 May 2022 22:27:37 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/test-goat/</guid>
+      <description>Hello Hugo!                                                                                                     A B A B A B                                                                                                                            A B C Y                                                                                                                                                                                                                                               &amp;amp; A M S i o i q f b B x u j o e a ( - x d r a &amp;gt; e f R &amp;gt; c o C n u o b ( n r ) ) d n e e J d r o s i n N o R D t o i u a a n g d d l o i t n e D i a g o n a l s C V u e r r v t e i d c a l n o t A N C : o u l d r r i A a / I v n s i n e e h s t d - e - t r l B i h i i s i o n &#39; s r e q n .</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
       <link>http://yangwujie.github.io/hugo-classroom/slides/test/</link>
       <pubDate>Fri, 27 May 2022 22:20:58 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/test/</guid>
-      <description> Hello Hugo!  </description>
+      <description>       </description>
     </item>
     
     <item>
@@ -22,7 +31,8 @@
       <pubDate>Fri, 27 May 2022 20:24:04 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/hello/</guid>
-      <description>Hello Hugo!  #include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello Wrold!\n); 	return 0; }            &amp;lt; ! - - . s l i d e : d a t a - b a c k g r o u n d = &#34; # F F 4 0 8 1 &#34;             Hello Hugo!</description>
+      <description>Hello Hugo!  #include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello Wrold!\n); 	return 0; }                      Hello Hugo!
+  One  Two  Three    Hello, world!   what?</description>
     </item>
     
   </channel>

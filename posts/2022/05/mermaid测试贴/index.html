@@ -21,22 +21,45 @@
 </nav><main>
 	<article class="post">
 		<header>
-			<h2>中国人和美国人谁更牛逼？</h2>
+			<h2>Mermaid测试贴</h2>
 			<p>杨武杰</p>
-			<p>2022年5月27日
+			<p>2022年5月29日
 				<span class="tags">
 					
 						
-						<a class="tag" href="/hugo-classroom/tags/%E7%96%AB%E6%83%85">疫情</a>
+						<a class="tag" href="/hugo-classroom/tags/hugo">Hugo</a>
+					
+						
+						<a class="tag" href="/hugo-classroom/tags/mermaid">mermaid</a>
 					
 				</span>
 			</p>
 			<p>预计阅读时间：0分钟</p>
 		</header>
 		<section class="body">
-			<p>中国人：“你们美国人真牛逼，根本不拿新冠当回事。”</p>
-<p>美国人：“不，不，还是你们中国人最牛逼，除了新冠，其他的都不是事儿。”</p>
-
+			<p>测试<a href="https://mermaid-js.github.io/mermaid/#/">mermaid</a>能否工作。</p>
+<div class="mermaid">  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+</div>
+<div class="mermaid">sequenceDiagram
+    participant dotcom
+    participant iframe
+    participant viewscreen
+    dotcom->>iframe: loads html w/ iframe url
+    iframe->>viewscreen: request template
+    viewscreen->>iframe: html & javascript
+    iframe->>dotcom: iframe ready
+    dotcom->>iframe: set mermaid data on iframe
+    iframe->>iframe: render mermaid
+</div>
+			
+				<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+				<script>
+					mermaid.initialize({ startOnLoad: true });
+				</script>
 			
 		</section>
 

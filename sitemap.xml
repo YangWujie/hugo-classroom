@@ -3,28 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://yangwujie.github.io/hugo-classroom/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
     <priority>0</priority>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/categories/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
-  </url><url>
-    <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/highlight/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/tags/hugo/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/tags/mermaid/</loc>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/mermaid%E6%B5%8B%E8%AF%95%E8%B4%B4/</loc>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/posts/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/year/</loc>
-    <lastmod>2022-05-28T13:31:40+08:00</lastmod>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-05-29T13:30:38+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/</loc>
+    <lastmod>2022-05-28T22:27:37+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/test-goat/</loc>
+    <lastmod>2022-05-28T22:27:37+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/</loc>
+    <lastmod>2022-05-28T22:27:37+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/hook/</loc>
+    <lastmod>2022-05-28T18:51:27+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/highlight/</loc>
     <lastmod>2022-05-28T13:31:40+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/tags/shortcodes/</loc>
@@ -55,12 +73,6 @@
     <lastmod>2022-05-27T22:35:40+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/slides/test/</loc>
-    <lastmod>2022-05-27T22:20:58+08:00</lastmod>
-  </url><url>
-    <loc>http://yangwujie.github.io/hugo-classroom/slides/</loc>
-    <lastmod>2022-05-27T22:20:58+08:00</lastmod>
-  </url><url>
-    <loc>http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/</loc>
     <lastmod>2022-05-27T22:20:58+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/reveal-hugo/</loc>
@@ -165,6 +177,8 @@
     <loc>http://yangwujie.github.io/hugo-classroom/tags/%E9%95%BF%E5%9F%8E/</loc>
     <lastmod>2022-05-24T16:42:29+08:00</lastmod>
   </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/template-example/continued/</loc>
+  </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/05/</loc>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/projects/classroom/</loc>
@@ -173,7 +187,11 @@
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/projects/fiction/</loc>
   </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/hugo-hl-example/</loc>
+  </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/month/</loc>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/template-example/</loc>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/projects/</loc>
   </url>

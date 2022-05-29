@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mermaid on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/mermaid/</link>
+    <description>Recent content in mermaid on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 29 May 2022 13:30:38 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mermaid测试贴</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/mermaid%E6%B5%8B%E8%AF%95%E8%B4%B4/</link>
+      <pubDate>Sun, 29 May 2022 13:30:38 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/05/mermaid%E6%B5%8B%E8%AF%95%E8%B4%B4/</guid>
+      <description>&lt;p&gt;测试&lt;a href=&#34;https://mermaid-js.github.io/mermaid/#/&#34;&gt;mermaid&lt;/a&gt;能否工作。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
