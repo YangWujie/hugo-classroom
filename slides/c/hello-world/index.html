@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Hello World</title>
+<meta name="description" content="一个试验性的教学网站">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reveal.css"><link rel="stylesheet" href="/hugo-classroom/reveal-js/css/theme/black.css" id="theme">
+<link rel="stylesheet" href="/hugo-classroom/highlight-js/default.min.css">
+    
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h1 id="hello-world">Hello World</h1>
+<p>in C</p>
+</section><section>
+<p>hello.c</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;Hello World!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>yang@ubuntu:~$ gcc hello.c -o hello
+</span></span><span style="display:flex;"><span>yang@ubuntu:~$ ./hello
+</span></span><span style="display:flex;"><span>Hello World!
+</span></span><span style="display:flex;"><span>yang@ubuntu:~$
+</span></span></code></pre></div><ul>
+<li>建造：<code>gcc hello.c -o hello</code></li>
+<li>运行：<code>./hello</code></li>
+<li>结果：<code>$ Hello World!</code></li>
+</ul>
+</section><section>
+<h2 id="建造build过程含多个步骤">建造（Build）过程含多个步骤</h2>
+<ol>
+<li>
+
+<span class='fragment ' >预处理</span>
+
+</li>
+<li>
+
+<span class='fragment ' >编译</span>
+
+</li>
+<li>
+
+<span class='fragment ' >链接</span>
+
+</li>
+</ol>
+</section><section>
+<h1 id="预处理">预处理</h1>
+</section><section>
+<h2 id="预处理的主要任务">预处理的主要任务</h2>
+<ul>
+<li>
+
+<span class='fragment ' >纳入头文件（<code>#include</code>）</span>
+
+</li>
+<li>
+
+<span class='fragment ' >宏扩展（<code>#define</code>）</span>
+
+</li>
+<li>
+
+<span class='fragment ' >条件编译（<code>#ifdef</code>）</span>
+
+</li>
+</ul>
+</section><section>
+<p>一个虚构的例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;foo.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define BAR_PARAM 7 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	foo();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef BAR_PARAM
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	bar(BAR_PARAM);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<p>foo.h</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bar</span>(<span style="color:#66d9ef">int</span> index);
+</span></span></code></pre></div></section><section>
+<p>执行预处理命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc -E main.c
+</span></span></code></pre></div><p>结果如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;main.c&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;&lt;built-in&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;&lt;command-line&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 31 &#34;&lt;command-line&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;/usr/include</span><span style="color:#75715e">/stdc-predef.h&#34; 1 3 4</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 32 &#34;&lt;command-line&gt;&#34; 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;main.c&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;foo.h&#34; 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bar</span>(<span style="color:#66d9ef">int</span> index);
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2 &#34;main.c&#34; 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> foo();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> bar(<span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<blockquote>
+<p>请忽略那些色调暗淡的行，那是行号信息，不是源码的一部分。</p>
+</blockquote>
+</section><section>
+<p>现在把<code>main.c</code>中的“<code>#define BAR_PARAM 7</code>”行删除</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;foo.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	foo();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef BAR_PARAM
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	bar(BAR_PARAM);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>猜猜看预处理后会得到什么结果？</p>
+</section><section>
+<p>结果如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;main.c&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;&lt;built-in&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;&lt;command-line&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 31 &#34;&lt;command-line&gt;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;/usr/include</span><span style="color:#75715e">/stdc-predef.h&#34; 1 3 4</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 32 &#34;&lt;command-line&gt;&#34; 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;main.c&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 &#34;foo.h&#34; 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bar</span>(<span style="color:#66d9ef">int</span> index);
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2 &#34;main.c&#34; 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> foo();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>请对比一下结果有什么变化，请问你猜对了吗？</p>
+</section><section>
+<p>结论</p>
+<p>预处理后得到的仍然是C源程序文件，只不过和程序员原来的程序相比有些变化而已。</p>
+</section><section>
+<p>预处理</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 408 201"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 168,0 L 216,0' fill='none' stroke='currentColor'></path>
+<path d='M 168,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 216,64' fill='none' stroke='currentColor'></path>
+<path d='M 24,112 L 72,112' fill='none' stroke='currentColor'></path>
+<path d='M 144,112 L 192,112' fill='none' stroke='currentColor'></path>
+<path d='M 192,112 L 240,112' fill='none' stroke='currentColor'></path>
+<path d='M 320,112 L 368,112' fill='none' stroke='currentColor'></path>
+<path d='M 88,144 L 136,144' fill='none' stroke='currentColor'></path>
+<path d='M 240,144 L 296,144' fill='none' stroke='currentColor'></path>
+<path d='M 24,176 L 72,176' fill='none' stroke='currentColor'></path>
+<path d='M 144,176 L 240,176' fill='none' stroke='currentColor'></path>
+<path d='M 320,176 L 368,176' fill='none' stroke='currentColor'></path>
+<path d='M 8,128 L 8,160' fill='none' stroke='currentColor'></path>
+<path d='M 88,128 L 88,144' fill='none' stroke='currentColor'></path>
+<path d='M 88,144 L 88,160' fill='none' stroke='currentColor'></path>
+<path d='M 144,112 L 144,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,16 L 152,48' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 192,96' fill='none' stroke='currentColor'></path>
+<path d='M 192,96 L 192,112' fill='none' stroke='currentColor'></path>
+<path d='M 232,16 L 232,48' fill='none' stroke='currentColor'></path>
+<path d='M 240,112 L 240,144' fill='none' stroke='currentColor'></path>
+<path d='M 240,144 L 240,176' fill='none' stroke='currentColor'></path>
+<path d='M 304,128 L 304,160' fill='none' stroke='currentColor'></path>
+<path d='M 384,128 L 384,160' fill='none' stroke='currentColor'></path>
+<polygon points='144.000000,144.000000 132.000000,138.399994 132.000000,149.600006' fill='currentColor' transform='rotate(0.000000, 136.000000, 144.000000)'></polygon>
+<path d='M 192,96 L 192,104' fill='none' stroke='currentColor'></path>
+<polygon points='208.000000,96.000000 196.000000,90.400002 196.000000,101.599998' fill='currentColor' transform='rotate(90.000000, 192.000000, 96.000000)'></polygon>
+<polygon points='304.000000,144.000000 292.000000,138.399994 292.000000,149.600006' fill='currentColor' transform='rotate(0.000000, 296.000000, 144.000000)'></polygon>
+<path d='M 168,0 A 16,16 0 0,0 152,16' fill='none' stroke='currentColor'></path>
+<path d='M 216,0 A 16,16 0 0,1 232,16' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 A 16,16 0 0,0 168,64' fill='none' stroke='currentColor'></path>
+<path d='M 232,48 A 16,16 0 0,1 216,64' fill='none' stroke='currentColor'></path>
+<path d='M 24,112 A 16,16 0 0,0 8,128' fill='none' stroke='currentColor'></path>
+<path d='M 72,112 A 16,16 0 0,1 88,128' fill='none' stroke='currentColor'></path>
+<path d='M 320,112 A 16,16 0 0,0 304,128' fill='none' stroke='currentColor'></path>
+<path d='M 368,112 A 16,16 0 0,1 384,128' fill='none' stroke='currentColor'></path>
+<path d='M 8,160 A 16,16 0 0,0 24,176' fill='none' stroke='currentColor'></path>
+<path d='M 88,160 A 16,16 0 0,1 72,176' fill='none' stroke='currentColor'></path>
+<path d='M 304,160 A 16,16 0 0,0 320,176' fill='none' stroke='currentColor'></path>
+<path d='M 384,160 A 16,16 0 0,1 368,176' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='32' y='148' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='40' y='148' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='48' y='148' fill='currentColor' style='font-size:1em'>文</text>
+<text text-anchor='middle' x='56' y='148' fill='currentColor' style='font-size:1em'>件</text>
+<text text-anchor='middle' x='176' y='36' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='176' y='148' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='184' y='148' fill='currentColor' style='font-size:1em'>预</text>
+<text text-anchor='middle' x='192' y='36' fill='currentColor' style='font-size:1em'>文</text>
+<text text-anchor='middle' x='192' y='148' fill='currentColor' style='font-size:1em'>处</text>
+<text text-anchor='middle' x='200' y='36' fill='currentColor' style='font-size:1em'>件</text>
+<text text-anchor='middle' x='200' y='148' fill='currentColor' style='font-size:1em'>理</text>
+<text text-anchor='middle' x='208' y='148' fill='currentColor' style='font-size:1em'>器</text>
+<text text-anchor='middle' x='328' y='148' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='336' y='148' fill='currentColor' style='font-size:1em'>源</text>
+<text text-anchor='middle' x='344' y='148' fill='currentColor' style='font-size:1em'>代</text>
+<text text-anchor='middle' x='352' y='148' fill='currentColor' style='font-size:1em'>码</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<h2 id="预处理的目的">预处理的目的</h2>
+<ul>
+<li>提高程序的可读性</li>
+<li>方便程序的维护</li>
+</ul>
+</section><section>
+<h1 id="编译">编译</h1>
+</section><section>
+<p>执行编译命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc -c main.c -o myapp.o
+</span></span></code></pre></div><p>命令完成后会在当前目录生成一个名为<code>myapp.o</code>的目标文件（包含目标平台的机器指令）。</p>
+</section><section>
+<p>借助工具<code>objdump</code>对其反汇编后，进行观察：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ objdump -d myapp.o
+</span></span></code></pre></div><pre tabindex="0"><code class="nohighlight" data-noescape>myapp.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 &lt;main&gt;:
+   0:   f3 0f 1e fa             endbr64 
+   4:   55                      push   %rbp
+   5:   48 89 e5                mov    %rsp,%rbp
+   8:   b8 00 00 00 00          mov    $0x0,%eax
+   d:   e8 00 00 00 00          callq  12 &lt;main+0x12&gt;
+  12:   b8 00 00 00 00          mov    $0x0,%eax
+  17:   5d                      pop    %rbp
+  18:   c3                      retq   
+</code></pre><p>大致可以看到<code>main</code>函数编译后的样子（其中包含一个函数调用指令<code>callq</code>）。</p>
+</section><section>
+<p>编译</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 408 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 24,0 L 72,0' fill='none' stroke='currentColor'></path>
+<path d='M 144,0 L 240,0' fill='none' stroke='currentColor'></path>
+<path d='M 320,0 L 368,0' fill='none' stroke='currentColor'></path>
+<path d='M 88,32 L 136,32' fill='none' stroke='currentColor'></path>
+<path d='M 240,32 L 296,32' fill='none' stroke='currentColor'></path>
+<path d='M 24,64 L 72,64' fill='none' stroke='currentColor'></path>
+<path d='M 144,64 L 240,64' fill='none' stroke='currentColor'></path>
+<path d='M 320,64 L 368,64' fill='none' stroke='currentColor'></path>
+<path d='M 8,16 L 8,48' fill='none' stroke='currentColor'></path>
+<path d='M 88,16 L 88,32' fill='none' stroke='currentColor'></path>
+<path d='M 88,32 L 88,48' fill='none' stroke='currentColor'></path>
+<path d='M 144,0 L 144,64' fill='none' stroke='currentColor'></path>
+<path d='M 240,0 L 240,32' fill='none' stroke='currentColor'></path>
+<path d='M 240,32 L 240,64' fill='none' stroke='currentColor'></path>
+<path d='M 304,16 L 304,48' fill='none' stroke='currentColor'></path>
+<path d='M 384,16 L 384,48' fill='none' stroke='currentColor'></path>
+<polygon points='144.000000,32.000000 132.000000,26.400000 132.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 136.000000, 32.000000)'></polygon>
+<polygon points='304.000000,32.000000 292.000000,26.400000 292.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 296.000000, 32.000000)'></polygon>
+<path d='M 24,0 A 16,16 0 0,0 8,16' fill='none' stroke='currentColor'></path>
+<path d='M 72,0 A 16,16 0 0,1 88,16' fill='none' stroke='currentColor'></path>
+<path d='M 320,0 A 16,16 0 0,0 304,16' fill='none' stroke='currentColor'></path>
+<path d='M 368,0 A 16,16 0 0,1 384,16' fill='none' stroke='currentColor'></path>
+<path d='M 8,48 A 16,16 0 0,0 24,64' fill='none' stroke='currentColor'></path>
+<path d='M 88,48 A 16,16 0 0,1 72,64' fill='none' stroke='currentColor'></path>
+<path d='M 304,48 A 16,16 0 0,0 320,64' fill='none' stroke='currentColor'></path>
+<path d='M 384,48 A 16,16 0 0,1 368,64' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>文</text>
+<text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>件</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>编</text>
+<text text-anchor='middle' x='192' y='36' fill='currentColor' style='font-size:1em'>译</text>
+<text text-anchor='middle' x='200' y='36' fill='currentColor' style='font-size:1em'>器</text>
+<text text-anchor='middle' x='328' y='36' fill='currentColor' style='font-size:1em'>目</text>
+<text text-anchor='middle' x='336' y='36' fill='currentColor' style='font-size:1em'>标</text>
+<text text-anchor='middle' x='344' y='36' fill='currentColor' style='font-size:1em'>代</text>
+<text text-anchor='middle' x='352' y='36' fill='currentColor' style='font-size:1em'>码</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<h1 id="链接">链接</h1>
+</section><section>
+<p>用<code>gcc</code>一次性完成预处理、编译和链接，这是我们通常的用法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc foo.c -o myapp
+</span></span></code></pre></div><p>喔，出错了：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>/usr/bin/ld: /tmp/ccqQ3C81.o: in function `main&#39;:
+main.c:(.text+0xe): undefined reference to `foo&#39;
+collect2: error: ld returned 1 exit status
+</code></pre></section><section>
+<p>这是什么意思？</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>main.c:(.text+0xe): undefined reference to `foo&#39;
+</code></pre></section><section>
+<p>噢，是因为我们没有编写<code>main</code>里调用的<code>foo</code>函数。现在创建一个名为<code>foo.c</code>的文件，在里面写入如下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>foo.c:
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;Function foo is called.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>为了编写<code>foo</code>函数，未必要创建新文件。我在这里为了演示怎样编写多个文件组成的程序，创建了一个新文件。</p>
+</section><section>
+<p>建造这个由多个源程序文件（<code>main.c、foo.c、foo.h</code>）组成的程序也很简单，一个命令即可搞定：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc main.c foo.c -o myapp
+</span></span></code></pre></div><p>命令执行后，磁盘上会生成一个名为<code>myapp</code>的文件。but&hellip;</p>
+</section><section>
+<p>屏幕上显示了这样的信息：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>foo.c: In function ‘foo’:
+foo.c:3:2: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+    3 |  printf(&#34;Function foo is called.\n&#34;);
+      |  ^~~~~~
+foo.c:3:2: warning: incompatible implicit declaration of built-in function ‘printf’
+foo.c:1:1: note: include ‘&lt;stdio.h&gt;’ or provide a declaration of ‘printf’
+  +++ |+#include &lt;stdio.h&gt;
+    1 | void foo()
+</code></pre></section><section>
+<p>原因</p>
+<p><code>foo</code>函数调用了<code>printf</code>，编译器在编译<code>foo.c</code>的时候，它不知道<code>printf</code>需要带什么样的参数以及返回什么样的值，所以它就瞎猜了一个。</p>
+<p>链接的时候，链接器在运行时库里找到了<code>printf</code>，但样式和编译器猜测的不一样，所以它给出了警告，并提示了修正的方法。</p>
+</section><section>
+<p>这种情况在某些编译器下可能会是个错误。在<code>gcc</code>下，虽然<code>myapp</code>已经生成了，但给出了警告。这终归是个隐患，我们这就根据编译器的提示修正这个警告。在<code>foo.c</code>里加一行代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;Function foo is called.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>然后，重新建造:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc main.c foo.c -o myapp
+</span></span></code></pre></div></section><section>
+<p>这次，建造命令执行完毕后，没有显示任何提示信息。没有消息就是好消息。</p>
+<p>用如下命令运行我们编写的程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ ./myapp
+</span></span></code></pre></div><p>屏幕上显示了如下信息：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>Function foo is called.
+</code></pre></section><section>
+<h1 id="makefile">Makefile</h1>
+</section><section>
+<p>如果程序规模较大，包括大量源程序文件，建造程序时，用上面的方法岂不很繁琐？</p>
+</section><section>
+<h2 id="make">Make</h2>
+<p>在源程序所在目录创建一个名为<code>Makefile</code>的文件，在里面写入如下内容：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>myapp: main.c foo.c foo.h
+	gcc main.c foo.c -o myapp
+</code></pre><p>请注意，第二行开头有个制表符，不能省略，否则会出错。保存文件，之后需要建造程序时，只需执行一个简单的命令即可：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ make
+</span></span></code></pre></div></section><section>
+<p>这个<code>makefile</code>简明但不专业。有关工具<code>make</code>的更详细信息请参考：</p>
+<ul>
+<li><a href="https://makefiletutorial.com/">Makefile Tutorial</a></li>
+<li><a href="https://www.gnu.org/software/make/manual/make.html">GNU make</a></li>
+</ul>
+</section><section>
+<h2 id="ide集成开发环境">IDE(集成开发环境)</h2>
+<p>多数人更喜欢IDE，这里也推荐几个：</p>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a></li>
+<li><a href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio Code</a></li>
+<li><a href="https://www.codeblocks.org/">Code::Blocks</a></li>
+<li>其他还有很多，例如：<a href="https://www.guru99.com/best-c-ide.html">20+ Best C IDE for Windows, Mac &amp; Linux (2022 Editors)</a></li>
+</ul>
+</section><section>
+<p>你没有看错，<code>Visual Studio</code>和<code>Visual Studio Code</code>不仅名字相近，我提供的链接也是相同的，因为这是同一家公司的产品。</p>
+<p>个人推荐<code>Visual Studio Code</code>，但它对新手不是很友好&hellip;&hellip;但还是要推荐</p>
+</section><section>
+<p>如果你决定选择vscode，那么这个链接或许对你有用：</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++ for Visual Studio Code</a></p>
+</section><section>
+<h1 id="happy-hacking">Happy Hacking</h1>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/hugo-classroom/reveal-hugo/object-assign.js></script>
+
+<a href="/hugo-classroom/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">null</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/hugo-classroom/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    Reveal.addEventListener('slidechanged', render);
+    Reveal.addEventListener('ready', render);
+  </script>
+
+    
+    
+  </body>
+</html>

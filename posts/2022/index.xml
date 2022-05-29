@@ -6,7 +6,19 @@
     <description>Recent content in 2022 on H@pPY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 May 2022 13:30:38 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/posts/2022/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 16:30:51 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/posts/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/c/hello-world/</link>
+      <pubDate>Sun, 29 May 2022 16:30:51 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/hello-world/</guid>
+      <description>Hello World in C
+ hello.c
+#include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello World!\n&amp;#34;); 	return 0; }  yang@ubuntu:~$ gcc hello.c -o hello yang@ubuntu:~$ ./hello Hello World! yang@ubuntu:~$  建造：gcc hello.c -o hello 运行：./hello 结果：$ Hello World!   建造（Build）过程含多个步骤   预处理   编译   链接    预处理  预处理的主要任务   纳入头文件（#include）   宏扩展（#define）   条件编译（#ifdef）    一个虚构的例子
+#include &amp;#34;foo.</description>
+    </item>
+    
     <item>
       <title>Mermaid测试贴</title>
       <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/mermaid%E6%B5%8B%E8%AF%95%E8%B4%B4/</link>
