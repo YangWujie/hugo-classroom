@@ -1,5 +1,5 @@
 +++
-title = ""
+title = "Test"
 outputs = ["Reveal"]
 date = 2022-05-27T22:20:58+08:00
 draft = false
@@ -10,8 +10,9 @@ year = "2022"
 month = "2022/05"
 +++
 
----
-
-# Hello Hugo!
+```goat {width="60%"}
+ .
+/ \ 
+```
 
 ---

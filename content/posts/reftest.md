@@ -16,6 +16,6 @@ month = "2022/05"
 [又一个水贴]({{< relref "posts/hello-world.md" >}})
 
 ```
-    [第一个水贴]({{< ref "posts/first-post.md" "html" >}})
-    [又一个水贴]({{< relref "posts/hello-world.md" >}})
+    [第一个水贴]({{</* ref "posts/first-post.md" "html" */>}})
+    [又一个水贴]({{</* relref "posts/hello-world.md" */>}})
 ```

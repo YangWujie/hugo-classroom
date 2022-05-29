@@ -11,3 +11,6 @@ month = "2022/05"
 
 写有关Hugo shortcodes的文章时，如何禁止它的shortcodes，从而能让它正确显示出来？这是个问题。
 <!--more-->
+答案来了：
+{{</*/* highlight go */*/>}}显示的结果就是{{</* highlight go */>}}
+

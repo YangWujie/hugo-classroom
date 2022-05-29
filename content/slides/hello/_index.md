@@ -27,7 +27,6 @@ int main()
 ----------
 
 ```goat
-<!-- .slide: data-background="#FF4081" -->
     ^
     |
 <---+--->
@@ -36,6 +35,8 @@ int main()
 ```
 
 ----------
+
+<!-- .slide: data-background="#FF4081" -->
 
 ```goat
    .-.
