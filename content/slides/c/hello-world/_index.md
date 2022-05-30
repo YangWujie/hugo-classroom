@@ -10,9 +10,13 @@ year = "2022"
 month = "2022/05"
 +++
 
-# Hello World
+{{< slide transition="zoom" >}}
+
+# [Hello World](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
 
 in C
+
+及C程序的编译和链接过程
 
 ---
 
@@ -36,9 +40,13 @@ Hello World!
 yang@ubuntu:~$
 ```
 
-- 建造：`gcc hello.c -o hello`
-- 运行：`./hello`
-- 结果：`$ Hello World!`
+- 建造程序：[gcc](https://gcc.gnu.org/) hello.c -o hello
+- 运行程序：[./](https://www.computerhope.com/jargon/d/dotslash.htm)hello
+- 运行结果：`$ Hello World!`
+
+---
+
+[Why do you need ./ (dot-slash) before executable or script name to run it in bash?](https://stackoverflow.com/questions/6331075/why-do-you-need-dot-slash-before-executable-or-script-name-to-run-it-in-bas)
 
 ---
 
@@ -49,6 +57,8 @@ yang@ubuntu:~$
 3. {{% fragment %}}链接{{% /fragment %}}
 
 ---
+
+{{< slide transition="zoom" >}}
 
 # 预处理
 
@@ -209,6 +219,8 @@ int main()
 
 ---
 
+{{< slide transition="zoom" >}}
+
 # 编译
 
 ---
@@ -221,7 +233,7 @@ $ gcc -c main.c -o myapp.o
 
 ---
 
-借助工具`objdump`对其反汇编后，进行观察：
+借助工具[`objdump`](https://www.geeksforgeeks.org/objdump-command-in-linux-with-examples/)对其反汇编后，进行观察：
 ```bash
 $ objdump -d myapp.o
 ```
@@ -256,6 +268,8 @@ Disassembly of section .text:
 ```
 
 ---
+
+{{< slide transition="zoom" >}}
 
 # 链接
 
@@ -364,7 +378,45 @@ Function foo is called.
 
 ---
 
-# Makefile
+## `printf`
+程序调用的`printf`函数并不是我们编写的，它是一个库函数。
+
+---
+
+## C标准函数库
+
+`printf`函数包含在C标准函数库中。
+
+标准库中包含了程序员经常用到的大量的函数，秉承“不需要重新发明轮子”的原则，开发工具的提供者预先编制好这些函数供程序员使用。
+
+请参考 [C Standard Library](https://en.wikipedia.org/wiki/C_standard_library)
+
+---
+
+链接
+```goat
+                     .-------.  
+                    |         | 
+                    |  运行时库   | 
+                    |         | 
+                     '---+---'  
+                         |
+                         v
+   .-------.       .-----+-----.        .-------.  
+  |         |      |           |       |         | 
+  |  目标文件   +----->|    链接器    +------>|  可执行程序  | 
+  |         |      |           |       |         | 
+   '-------'       '-----------'        '-------'  
+
+```
+
+---
+
+{{< slide transition="zoom" >}}
+
+# [GNU make](https://www.gnu.org/software/make/)
+
+[![GNU logo](246px-The_GNU_logo.png)](https://www.gnu.org/software/make/)
 
 ---
 
@@ -372,7 +424,7 @@ Function foo is called.
 
 ---
 
-## Make
+## Makefile
 
 在源程序所在目录创建一个名为`Makefile`的文件，在里面写入如下内容：
 ```nohighlight
@@ -386,31 +438,47 @@ $ make
 
 ---
 
-这个`makefile`简明但不专业。有关工具`make`的更详细信息请参考：
+这个`makefile`简明但不专业。有关[`GNU make`](https://www.gnu.org/software/make/)的更详细信息请参考：
 - [Makefile Tutorial](https://makefiletutorial.com/)
 - [GNU make](https://www.gnu.org/software/make/manual/make.html)
 
 ---
 
-## IDE(集成开发环境)
+## [IDE(集成开发环境)](https://en.wikipedia.org/wiki/Integrated_development_environment)
 多数人更喜欢IDE，这里也推荐几个：
 - [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
-- [Visual Studio Code](https://visualstudio.microsoft.com/zh-hans/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Code::Blocks](https://www.codeblocks.org/)
 - 其他还有很多，例如：[20+ Best C IDE for Windows, Mac & Linux (2022 Editors)](https://www.guru99.com/best-c-ide.html)
 
 ---
 
-你没有看错，`Visual Studio`和`Visual Studio Code`不仅名字相近，我提供的链接也是相同的，因为这是同一家公司的产品。
+你没有看错，`Visual Studio`和`Visual Studio Code`不仅名字相近，实际上他们是同一家公司的产品。
 
-个人推荐`Visual Studio Code`，但它对新手不是很友好......但还是要推荐
+个人推荐[`Visual Studio Code`](https://code.visualstudio.com/)，但它对新手不是很友好......但还是要推荐
+
+[![vscode icon](Visual_Studio_Code_icon.svg)](https://code.visualstudio.com/)
 
 ---
 
-如果你决定选择vscode，那么这个链接或许对你有用：
+## [Why Visual Studio Code?](https://code.visualstudio.com/docs/editor/whyvscode)
+
+[![Visual Studio Code](https://code.visualstudio.com/assets/docs/editor/whyvscode/macwinlinux2.png)](https://code.visualstudio.com/docs/editor/whyvscode)
+
+---
+
+如果你选择vscode，那么这个链接或许对你有用：
 
 [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
 ---
 
+{{% section %}}
 # Happy Hacking
+
+---
+
+![hacking](what-is-the-purpose-of-hacking.png)
+
+{{% /section %}}
+
