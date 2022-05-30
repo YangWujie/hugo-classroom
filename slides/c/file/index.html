@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>File</title>
+<meta name="description" content="一个试验性的教学网站">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reveal.css"><link rel="stylesheet" href="/hugo-classroom/reveal-js/css/theme/black.css" id="theme">
+<link rel="stylesheet" href="/hugo-classroom/highlight-js/default.min.css">
+    
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<h1 id="c文件输入输出httpsenwikipediaorgwikic_file_inputoutput"><a href="https://en.wikipedia.org/wiki/C_file_input/output">C文件输入输出</a></h1>
+</section><section>
+<ul>
+<li>文件无处不住，这包括你的头文件，你的源程序文件，编译生成的目标文件，链接得到的可执行文件</li>
+<li>不涉及文件操作的C程序几乎不存在</li>
+<li>即便那个最简单的<code>Hello World</code>程序也涉及文件操作，只不过穿了个马甲</li>
+</ul>
+</section><section>
+<p><code>printf</code>就是个穿了马甲的文件操作</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;Hello World!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<p>马甲之下的真相：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	fprintf(stdout, <span style="color:#e6db74">&#34;Hello World!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这个程序和原来的<code>Hello World</code>程序等价。</p>
+</section><section>
+<h2 id="标准输出设备httpsenwikipediaorgwikistandard_streamsstandard_output_stdout"><a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)">标准输出设备</a></h2>
+<ul>
+<li>stdout即标准输出设备，程序运行时系统自动为你打开</li>
+<li>除了stdout之外，系统还自动打开了stdin（标准输入设备）和stderr（标准错误设备）</li>
+<li>文件、设备、流几个术语在某些场合下经常互换使用</li>
+</ul>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">printf</span> ( <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>format, ... );
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fprintf</span>( FILE <span style="color:#f92672">*</span>stream, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>format, ... );
+</span></span></code></pre></div><p>看了它们的函数原型，了解它们为什么有那样的名字了吧？</p>
+<ul>
+<li>stream − This is the pointer to a FILE object that identifies the stream.</li>
+<li>format − This is the C string that contains the text to be written to the stream. It can optionally contain embedded format tags that are replaced by the values specified in subsequent additional arguments and formatted as requested.</li>
+</ul>
+</section><section>
+<p><a href="https://stackoverflow.com/questions/38652953/what-does-stream-mean-in-c">What does &lsquo;stream&rsquo; mean in C?</a></p>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	FILE <span style="color:#f92672">*</span>fp;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	fp <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;test.txt&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	<span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>		perror(<span style="color:#e6db74">&#34;Error: &#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	fprintf(fp, <span style="color:#e6db74">&#34;This is testing for fprintf...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	fputs(<span style="color:#e6db74">&#34;This is testing for fputs...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	fclose(fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>}
+</span></span></code></pre></div></section><section>
+<p>这个程序运行后，屏幕上不会显示信息。如果查看当前目录，则会发现一个名为<code>test.txt</code>的文件，其中包含如下信息：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>This is testing for fprintf...
+This is testing for fputs...
+</code></pre></section><section>
+<p>再运行一次，<code>test.txt</code>中的信息则变为：</p>
+<pre tabindex="0"><code class="nohighlight" data-noescape>This is testing for fprintf...
+This is testing for fputs...
+This is testing for fprintf...
+This is testing for fputs...
+</code></pre><p>请解释这个现象的原因，可参考<a href="https://www.programiz.com/c-programming/c-file-input-output">C File Handling</a></p>
+</section><section>
+<ul>
+<li>
+<p>请把<code>test.txt</code>文件的存取属性设置为“只读”，然后再次运行这个程序，请问得到了什么结果？</p>
+</li>
+<li>
+<p>如果把程序的第7-10行删除，运行时又会得到什么结果？</p>
+</li>
+</ul>
+<p><strong>教训</strong></p>
+<p>C没有异常处理机制，I/O操作时，请记得检查函数的返回值。否则，这可能成为程序的一个bug。</p>
+</section>
+
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<h1 id="文本方式打开">文本方式打开</h1>
+<p>vs</p>
+<h1 id="二进制方式打开">二进制方式打开</h1>
+<p>请参考<a href="https://stackoverflow.com/questions/26966715/differences-between-writing-reading-binary-text-in-c">Binary vs Text</a></p>
+</section><section>
+<p><strong>没有区别，几乎没有！</strong></p>
+<p>现在仍然强调这种区别，更多是因为历史原因。</p>
+<p>请参考<a href="https://stackoverflow.com/questions/6039050/difference-between-text-file-and-binary-file">difference between text file and binary file</a></p>
+</section><section>
+<p>你可能会质疑我的说法，但我会捍卫我的观点。</p>
+<ul>
+<li>在Linux下，无论是以二进制方式打开还是以文本方式打开，只要程序其他方面相同，你会得到完全相同的结果</li>
+<li>在Windows下，你会得到几乎同样的结果，其中只有一点点细微的差别。我如果不提醒，你可能都注意不到</li>
+</ul>
+</section><section>
+<p>程序一：以文本方式打开</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	FILE <span style="color:#f92672">*</span>fp;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	fp <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;test.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>		perror(<span style="color:#e6db74">&#34;Error: &#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	fprintf(fp, <span style="color:#e6db74">&#34;A</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">B&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    fclose(fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>}
+</span></span></code></pre></div></section><section>
+<p>程序二：以二进制方式打开</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	FILE <span style="color:#f92672">*</span>fp;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	fp <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;test.txt&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>		perror(<span style="color:#e6db74">&#34;Error: &#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	fprintf(fp, <span style="color:#e6db74">&#34;A</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">B&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	fclose(fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>这两个程序在Linux下运行结果完全相同</li>
+<li>这两个程序在Windows下运行，其中一个向文件中写了3个字节，另一个向文件中写了4个字节</li>
+<li>之所以有这种区别，是因为以文本方式打开，写入文件时把换行符转换成了回车和换行两个字符</li>
+<li>结论：<strong>打开文件时，根本不用纠结如何选择打开方式</strong></li>
+</ul>
+</section><section>
+<p><strong>如有不同意见敬请告知</strong></p>
+<p>谢谢</p>
+</section>
+
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<h1 id="编码httpsenwikipediaorgwikicode"><a href="https://en.wikipedia.org/wiki/Code">编码</a></h1>
+<p><a href="https://en.wikipedia.org/wiki/Braille"><img src="Russian_Braille_chart.jpg" alt="Braille chart"></a></p>
+</section><section>
+<p>本质上</p>
+<p><strong>所有文件均以二进制方式存在</strong></p>
+<p>重点是</p>
+<p><strong>数据是以何种编码方式生成的</strong></p>
+<p>以及</p>
+<p><strong>我们如何对这些数据进行解读</strong></p>
+</section><section>
+<p>我们可以把一个文件解释为</p>
+<ul>
+<li>文本文件</li>
+<li>压缩文件</li>
+<li>可执行程序</li>
+<li>音频文件</li>
+<li>&hellip;</li>
+</ul>
+<p>解释成功的前提是</p>
+<p><strong>文件中的数据必须以我们期望的格式编码</strong></p>
+</section><section>
+<p>书籍推荐</p>
+<p><a href="https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software">Code: The Hidden Language of Computer Hardware and Software</a></p>
+</section><section>
+<p>一个例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	FILE <span style="color:#f92672">*</span>fp;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345678</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	fp <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;test.txt&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>	<span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>		perror(<span style="color:#e6db74">&#34;Error: &#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	}
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	fprintf(fp, <span style="color:#e6db74">&#34;%d&#34;</span>, i);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	fclose(fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>这个程序输出的文字信息使用了UTF-8编码规范（在我的电脑上），在你的电脑上也许使用的是不同的规范。</li>
+<li>同一个文本文件，在有的电脑上能正常显示，在有的电脑上却是乱码，原因就在于解读时使用了错误的编码规范。</li>
+</ul>
+</section><section>
+<ul>
+<li>这个程序是以二进制方式打开文件的，请问得到的<code>test.txt</code>文件中包含什么内容？</li>
+<li>假设把打开方式改为文本方式，结果会有不同吗？</li>
+<li>在Linux和Windows下运行，会有不同吗？</li>
+<li>这个程序生成的<code>test.txt</code>应该怎样解读？请写代码验证。</li>
+</ul>
+</section><section>
+<p>另一个例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	FILE <span style="color:#f92672">*</span>fp;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345678</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	fp <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;test.txt&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>	<span style="color:#66d9ef">if</span> (fp <span style="color:#f92672">==</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>		perror(<span style="color:#e6db74">&#34;Error: &#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>		<span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	}
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	fwrite(<span style="color:#f92672">&amp;</span>i, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>), <span style="color:#ae81ff">1</span>, fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	fclose(fp);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span></code></pre></div><p>请参考<a href="https://www.tutorialspoint.com/c_standard_library/c_function_fwrite.htm">C library function - fwrite()</a></p>
+</section><section>
+<p>这个程序输出的数据信息遵循<a href="https://en.wikipedia.org/wiki/ANSI_C">ANSI C</a>规范中的数据表示标准。</p>
+</section><section>
+<ul>
+<li>这个程序和上一个程序的区别仅在于第12行，请问得到的<code>test.txt</code>文件中包含什么内容？和上一个程序相同吗？</li>
+<li>假设把打开方式改为文本方式，结果会有不同吗？</li>
+<li>在Linux和Windows下运行，会有不同吗？</li>
+<li>这个程序生成的<code>test.txt</code>应该怎样解读？请写代码验证。</li>
+<li>这个程序通过修改打开方式，或者修改文件名后缀，能生成文本文件吗？</li>
+</ul>
+</section><section>
+<p><strong>Happy Hacking</strong></p>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/hugo-classroom/reveal-hugo/object-assign.js></script>
+
+<a href="/hugo-classroom/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">null</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/hugo-classroom/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    Reveal.addEventListener('slidechanged', render);
+    Reveal.addEventListener('ready', render);
+  </script>
+
+    
+    
+  </body>
+</html>

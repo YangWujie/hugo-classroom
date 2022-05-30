@@ -3,17 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://yangwujie.github.io/hugo-classroom/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
     <priority>0</priority>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/posts/2022/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/tags/c/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/categories/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/slides/c/file/</loc>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/year/</loc>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/</loc>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-05-30T09:19:36+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/slides/c/hello-world/</loc>
     <lastmod>2022-05-29T16:30:51+08:00</lastmod>
@@ -22,12 +34,6 @@
     <lastmod>2022-05-29T16:30:51+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/tags/hugo/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
-  </url><url>
-    <loc>http://yangwujie.github.io/hugo-classroom/year/</loc>
-    <lastmod>2022-05-29T16:30:51+08:00</lastmod>
-  </url><url>
-    <loc>http://yangwujie.github.io/hugo-classroom/categories/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/</loc>
     <lastmod>2022-05-29T16:30:51+08:00</lastmod>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/tags/mermaid/</loc>
@@ -198,6 +204,8 @@
     <loc>http://yangwujie.github.io/hugo-classroom/month/</loc>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/slides/template-example/</loc>
+  </url><url>
+    <loc>http://yangwujie.github.io/hugo-classroom/tags/%E6%96%87%E4%BB%B6i/o/</loc>
   </url><url>
     <loc>http://yangwujie.github.io/hugo-classroom/projects/</loc>
   </url>
