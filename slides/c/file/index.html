@@ -120,7 +120,7 @@ This is testing for fputs...
 <p>现在仍然强调这种区别，更多是因为历史原因。</p>
 <p>请参考<a href="https://stackoverflow.com/questions/6039050/difference-between-text-file-and-binary-file">difference between text file and binary file</a></p>
 </section><section>
-<p>你可能会质疑我的说法，但我会捍卫我的观点。</p>
+<p>你可能会质疑我的说法，但我会事实捍卫我的观点。</p>
 <ul>
 <li>在Linux下，无论是以二进制方式打开还是以文本方式打开，只要程序其他方面相同，你会得到完全相同的结果</li>
 <li>在Windows下，你会得到几乎同样的结果，其中只有一点点细微的差别。我如果不提醒，你可能都注意不到</li>
@@ -161,11 +161,8 @@ This is testing for fputs...
 <li>这两个程序在Linux下运行结果完全相同</li>
 <li>这两个程序在Windows下运行，其中一个向文件中写了3个字节，另一个向文件中写了4个字节</li>
 <li>之所以有这种区别，是因为以文本方式打开，写入文件时把换行符转换成了回车和换行两个字符</li>
-<li>结论：<strong>打开文件时，根本不用纠结如何选择打开方式</strong></li>
+<li>结论：<strong>打开文件时，根本不用纠结如何选择打开方式，它们几乎没有区别。即便有些微区别，它对你几乎没有影响。</strong></li>
 </ul>
-</section><section>
-<p><strong>如有不同意见敬请告知</strong></p>
-<p>谢谢</p>
 </section>
 
 <section data-noprocess data-shortcode-slide
@@ -184,13 +181,13 @@ This is testing for fputs...
 <p>我们可以把一个文件解释为</p>
 <ul>
 <li>文本文件</li>
-<li>压缩文件</li>
+<li>压缩包</li>
 <li>可执行程序</li>
-<li>音频文件</li>
+<li>音频</li>
 <li>&hellip;</li>
 </ul>
 <p>解释成功的前提是</p>
-<p><strong>文件中的数据必须以我们期望的格式编码</strong></p>
+<p><strong>文件中的数据以我们期望的格式编码</strong></p>
 </section><section>
 <p>书籍推荐</p>
 <p><a href="https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software">Code: The Hidden Language of Computer Hardware and Software</a></p>
@@ -251,6 +248,92 @@ This is testing for fputs...
 <li>这个程序生成的<code>test.txt</code>应该怎样解读？请写代码验证。</li>
 <li>这个程序通过修改打开方式，或者修改文件名后缀，能生成文本文件吗？</li>
 </ul>
+</section>
+
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<h1 id="文件路径">文件路径</h1>
+</section><section>
+<ul>
+<li>操作文件的第一个步骤是打开文件。</li>
+<li>打开文件时需要指明文件位置，即文件路径。</li>
+<li>在计算机系统里，文件系统是一个倒立的树状结构。</li>
+<li>Linux的根目录用“/”表示。</li>
+<li>Windows的根目录用盘符表示，例如“C:\”。从这个意义上，我们把Windows的文件系统看作森林更合适（因为多个盘没有共同的根）。</li>
+</ul>
+</section><section>
+<h2 id="绝对路径">绝对路径</h2>
+<ul>
+<li>在Windows下，以盘符开始的路径</li>
+<li>在Linux下，以“/”开始的路径</li>
+</ul>
+<p>绝对路径的概念很清晰，用起来也很简单，但并不常用。为什么？</p>
+</section><section>
+<p>举个生活中的例子。如果要告诉别人自己的位置，我们并不直接说出经纬度，而是先说一个地标，然后说出相对地标的方位和距离，这样更方便。</p>
+<p>程序也一样。在不同的计算机系统，程序有可能被安装到不同的目录，所以访问自己安装目录里的文件时，如果要使用绝对路径，首先需要了解自己安装目录，然后再拼装出完整路径，这并不方便。</p>
+<p>如果把程序的安装目录当作参照物，说出一个相对这个参照物的路径，然后由系统自动拼装出绝对路径不是很方便吗？</p>
+</section><section>
+<h2 id="相对路径">相对路径</h2>
+<ul>
+<li>顾名思义，相对路径就是相对于某个目录的路径。</li>
+<li>我们把这个作为参照的路径叫做当前工作目录。</li>
+<li>系统为每个运行的程序都设定一个当前工作目录。</li>
+<li>程序也可根据需要自行改变当前工作目录。</li>
+</ul>
+</section><section>
+<h2 id="如何了解程序的当前工作目录">如何了解程序的当前工作目录？</h2>
+<p>在不同情况下，系统给程序设定的当前工作目录可能不一样。</p>
+<ul>
+<li>在Visual Studio里</li>
+<li>在命令行窗口直接键入程序名</li>
+<li>把程序拖入命令行窗口</li>
+</ul>
+<p>这些不同情形，因为设定的当前工作目录不同，可能会给大家带来困惑。如果需要，可以通过程序的方式获得。</p>
+</section><section>
+<p>Windows下获取当前工作目录的程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;direct.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> buff[FILENAME_MAX];
+</span></span><span style="display:flex;"><span>	_getcwd(buff, FILENAME_MAX);
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;Current working dir: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buff);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<p>Linux下获取当前工作目录的程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;limits.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> cwd[PATH_MAX];
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (getcwd(cwd, <span style="color:#66d9ef">sizeof</span>(cwd)) <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;Current working dir: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, cwd);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<h2 id="挑战">挑战</h2>
+<p>用宏定义和条件编译预处理指令把两个程序合二为一。</p>
+</section><section>
+<h2 id="相对路径的形式">相对路径的形式</h2>
+<ul>
+<li>Linux下，不以“/”开头的路径</li>
+<li>Windows下，不以盘符开头的路径</li>
+<li>路径中可以使用“.”代表当前目录</li>
+<li>路径中可以使用“..”代表父目录</li>
+</ul>
+</section><section>
+<h2 id="绝对路径和相对路径的关系">绝对路径和相对路径的关系</h2>
+<p><strong>当前工作目录 + 相对路径 = 绝对路径</strong></p>
+</section><section>
+<h2 id="建议">建议</h2>
+<p>除非是访问系统文件，否则一般不要使用绝对路径，特别是在访问和当前程序相关的文件时。</p>
+<p>比如，在你的系统里，你用绝对路径在D盘创建了文件。但在另一个系统里，可能根本不存在D盘。这时，你的程序就无法正常工作了。</p>
 </section><section>
 <p><strong>Happy Hacking</strong></p>
 </section>
