@@ -9,12 +9,12 @@
     <lastBuildDate>Mon, 30 May 2022 17:54:23 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>内存布局</title>
-      <link>http://yangwujie.github.io/hugo-classroom/slides/c/memory/</link>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/c/memory-layout/</link>
       <pubDate>Mon, 30 May 2022 17:54:23 +0800</pubDate>
       
-      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/memory/</guid>
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/memory-layout/</guid>
       <description>C语言程序的
-内存布局   memory-layout.c:一个极简C程序框架  int main() { 	return 0; }  数据段和代码段   用gcc建造该程序，并用GNU工具size查看可执行程序中各部分的大小：  $ gcc memory-layout.c -o memory-layout $ size memory-layout text data bss dec hex filename 1418 544 8 1970 7b2 memory-layout   给程序增加一个全局变量：  1double global; 2 3int main() 4{ 5	return 0; 6}  $ gcc memory-layout.c -o memory-layout $ size memory-layout text data bss dec hex filename 1418 544 16 1978 7ba memory-layout  再次查看，比较两次的数据差异可知，变量global位于bss段。   bss  这是一个被沿用的古老的名字。 是block starting symbol的缩写。 其中的数据未被初始化，所以在目标文件中只记录大小，但并不占用空间。 程序运行时，在内存为bss中的数据分配空间，默认值为0。   问题  请想办法验证bss中的数据在目标文件中真的不占用空间，并说明为什么可以这样？    给程序增加两个静态变量：  1double global; 2 3int main() 4{ 5	static int i, j; 6	return 0; 7}  $ gcc memory-layout.</description>
+内存布局 memory-layout.c:一个极简C程序框架 int main() { return 0; } 数据段和代码段 用gcc建造该程序，并用GNU工具size查看可执行程序中各部分的大小： $ gcc memory-layout.c -o memory-layout $ size memory-layout text data bss dec hex filename 1418 544 8 1970 7b2 memory-layout 给程序增加一个全局变量： 1double global; 2 3int main() 4{ 5	return 0; 6} $ gcc memory-layout.c -o memory-layout $ size memory-layout text data bss dec hex filename 1418 544 16 1978 7ba memory-layout 再次查看，比较两次的数据差异可知，变量global位于bss段。 bss 这是一个被沿用的古老的名字。 是block starting symbol的缩写。 其中的数据未被初始化，所以在目标文件中只记录大小，但并不占用空间。 程序运行时，在内存为bss中的数据分配空间，默认值为0。 问题 请想办法验证bss中的数据在目标文件中真的不占用空间，并说明为什么可以这样？ 给程序增加两个静态变量： 1double global; 2 3int main() 4{ 5	static int i, j; 6	return 0; 7} $ gcc memory-layout.</description>
     </item>
     
   </channel>

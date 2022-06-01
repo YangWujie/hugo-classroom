@@ -15,9 +15,10 @@
       <guid>http://yangwujie.github.io/hugo-classroom/slides/c/hello-world/</guid>
       <description>Hello World in C
 及C程序的编译和链接过程
- hello.c
-#include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello World!\n&amp;#34;); 	return 0; }  yang@ubuntu:~$ gcc hello.c -o hello yang@ubuntu:~$ ./hello Hello World! yang@ubuntu:~$  建造程序：gcc hello.c -o hello 运行程序：./hello 运行结果：$ Hello World!   Why do you need ./ (dot-slash) before executable or script name to run it in bash?
- 建造（Build）过程含多个步骤   预处理   编译   链接    预处理  预处理的主要任务   纳入头文件（#include）   宏扩展（#define）   条件编译（#ifdef）    一个虚构的例子</description>
+hello.c
+#include &amp;lt;stdio.h&amp;gt; int main() { printf(&amp;#34;Hello World!\n&amp;#34;); return 0; } yang@ubuntu:~$ gcc hello.c -o hello yang@ubuntu:~$ ./hello Hello World! yang@ubuntu:~$ 建造程序：gcc hello.c -o hello 运行程序：./hello 运行结果：$ Hello World! Why do you need ./ (dot-slash) before executable or script name to run it in bash?
+建造（Build）过程含多个步骤 预处理 编译 链接 预处理 预处理的主要任务 纳入头文件（#include） 宏扩展（#define） 条件编译（#ifdef） 一个虚构的例子
+#include &amp;#34;foo.h&amp;#34; #define BAR_PARAM 7 int main() { foo(); #ifdef BAR_PARAM bar(BAR_PARAM); #endif return 0; } foo.</description>
     </item>
     
     <item>
@@ -35,7 +36,7 @@
       <pubDate>Sat, 28 May 2022 22:27:37 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/test-goat/</guid>
-      <description>Hello Hugo!                                                                                                     A B A B A B                                                                                                                            A B C Y                                                                                                                                                                                                                                               &amp;amp; A M S i o i q f b B x u j o e a ( - x d r a &amp;gt; e f R &amp;gt; c o C n u o b ( n r ) ) d n e e J d r o s i n N o R D t o i u a a n g d d l o i t n e D i a g o n a l s C V u e r r v t e i d c a l n o t A N C : o u l d r r i A a / I v n s i n e e h s t d - e - t r l B i h i i s i o n &#39; s r e q n .</description>
+      <description>Hello Hugo! A B A B A B A B C Y &amp;amp; A M S i o i q f b B x u j o e a ( - x d r a &amp;gt; e f R &amp;gt; c o C n u o b ( n r ) ) d n e e J d r o s i n N o R D t o i u a a n g d d l o i t n e D i a g o n a l s C V u e r r v t e i d c a l n o t A N C : o u l d r r i A a / I v n s i n e e h s t d - e - t r l B i h i i s i o n &#39; s r e q n .</description>
     </item>
     
     <item>
@@ -100,7 +101,7 @@
       <pubDate>Fri, 27 May 2022 22:20:58 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/test/</guid>
-      <description>       </description>
+      <description> </description>
     </item>
     
     <item>
@@ -118,8 +119,8 @@
       <pubDate>Fri, 27 May 2022 20:24:04 +0800</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/hello/</guid>
-      <description>Hello Hugo!  #include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello Wrold!\n); 	return 0; }                      Hello Hugo!
-  One  Two  Three    Hello, world!   what?</description>
+      <description>Hello Hugo! #include &amp;lt;stdio.h&amp;gt; int main() { printf(&amp;#34;Hello Wrold!\n); return 0; } Hello Hugo!
+One Two Three Hello, world! what?</description>
     </item>
     
     <item>

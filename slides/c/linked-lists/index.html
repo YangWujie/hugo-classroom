@@ -1,0 +1,2174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>链表</title>
+<meta name="description" content="一个试验性的教学网站">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/hugo-classroom/reveal-js/css/reveal.css"><link rel="stylesheet" href="/hugo-classroom/reveal-js/css/theme/black.css" id="theme">
+<link rel="stylesheet" href="/hugo-classroom/highlight-js/default.min.css">
+    
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<p>C语言的</p>
+<h1 id="链表">链表</h1>
+<p>及函数的参数传递</p>
+</section><section>
+<p><img src="linked-lists.jpg" alt="linked lists"></p>
+</section><section>
+<h2 id="链表-vs-数组">链表 vs 数组</h2>
+<ul>
+<li>数组长度固定，而链表长度可动态变化。</li>
+<li>数组可以随机存取，而链表只能顺序存取。</li>
+<li>链表中的数据，可以根据需要插入或删除。</li>
+<li>链表涉及大量指针操作，使用难度较高。</li>
+<li>存储同样数量的数据，链表的时间和空间开销都比数组大。</li>
+</ul>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="链表的基本概念">链表的基本概念</h2>
+</section><section>
+<ul>
+<li>把需要存储的数据和一个额外的指针组合成同一个数据结构，然后让指针指向下一个这样的数据结构</li>
+<li>这样的数据结构，一个接一个依次相连，就可以组成任意长度的链表</li>
+</ul>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 424 73"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,16 L 72,16' fill='none' stroke='currentColor'></path>
+<path d='M 72,16 L 104,16' fill='none' stroke='currentColor'></path>
+<path d='M 152,16 L 224,16' fill='none' stroke='currentColor'></path>
+<path d='M 224,16 L 256,16' fill='none' stroke='currentColor'></path>
+<path d='M 304,16 L 376,16' fill='none' stroke='currentColor'></path>
+<path d='M 376,16 L 408,16' fill='none' stroke='currentColor'></path>
+<path d='M 88,32 L 104,32' fill='none' stroke='currentColor'></path>
+<path d='M 104,32 L 144,32' fill='none' stroke='currentColor'></path>
+<path d='M 240,32 L 256,32' fill='none' stroke='currentColor'></path>
+<path d='M 256,32 L 296,32' fill='none' stroke='currentColor'></path>
+<path d='M 0,48 L 72,48' fill='none' stroke='currentColor'></path>
+<path d='M 72,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 256,48' fill='none' stroke='currentColor'></path>
+<path d='M 304,48 L 376,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 408,48' fill='none' stroke='currentColor'></path>
+<path d='M 0,16 L 0,48' fill='none' stroke='currentColor'></path>
+<path d='M 72,16 L 72,48' fill='none' stroke='currentColor'></path>
+<path d='M 104,16 L 104,32' fill='none' stroke='currentColor'></path>
+<path d='M 104,32 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 152,16 L 152,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,16 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 256,16 L 256,32' fill='none' stroke='currentColor'></path>
+<path d='M 256,32 L 256,48' fill='none' stroke='currentColor'></path>
+<path d='M 304,16 L 304,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,16 L 376,48' fill='none' stroke='currentColor'></path>
+<path d='M 408,16 L 408,48' fill='none' stroke='currentColor'></path>
+<polygon points='152.000000,32.000000 140.000000,26.400000 140.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 144.000000, 32.000000)'></polygon>
+<polygon points='304.000000,32.000000 292.000000,26.400000 292.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 296.000000, 32.000000)'></polygon>
+<circle cx='88' cy='32' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='240' cy='32' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='392' cy='32' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='176' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='184' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='192' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='200' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='328' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='336' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='344' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='352' y='36' fill='currentColor' style='font-size:1em'>a</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<h2 id="定义链表节点">定义链表节点</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>head <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>	head<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>	head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 240 73"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,16 L 192,16' fill='none' stroke='currentColor'></path>
+<path d='M 192,16 L 224,16' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 104,32' fill='none' stroke='currentColor'></path>
+<path d='M 112,48 L 192,48' fill='none' stroke='currentColor'></path>
+<path d='M 192,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 16,16 L 16,32' fill='none' stroke='currentColor'></path>
+<path d='M 112,16 L 112,48' fill='none' stroke='currentColor'></path>
+<path d='M 192,16 L 192,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,16 L 224,48' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,32.000000 100.000000,26.400000 100.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 32.000000)'></polygon>
+<circle cx='208' cy='32' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new;
+</span></span><span style="display:flex;"><span>new <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 240 73"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,16 L 192,16' fill='none' stroke='currentColor'></path>
+<path d='M 192,16 L 224,16' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 104,32' fill='none' stroke='currentColor'></path>
+<path d='M 112,48 L 192,48' fill='none' stroke='currentColor'></path>
+<path d='M 192,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 16,16 L 16,32' fill='none' stroke='currentColor'></path>
+<path d='M 112,16 L 112,48' fill='none' stroke='currentColor'></path>
+<path d='M 192,16 L 192,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,16 L 224,48' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,32.000000 100.000000,26.400000 100.000000,37.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 32.000000)'></polygon>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='208' y='36' fill='currentColor' style='font-size:1em'>?</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<h2 id="如何做到">如何做到？</h2>
+<ul>
+<li>把<code>new</code>和<code>head</code>两个节点链接起来</li>
+<li>让<code>new</code>在前，<code>head</code>在后</li>
+<li>让<code>head</code>也指向<code>new</code>,效果图如下</li>
+</ul>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 440 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,32 L 192,32' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 224,32' fill='none' stroke='currentColor'></path>
+<path d='M 312,32 L 392,32' fill='none' stroke='currentColor'></path>
+<path d='M 392,32 L 424,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 208,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 304,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,64 L 424,64' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 16,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 112,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 224,32 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 312,32 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,32 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 424,32 L 424,64' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,48.000000 100.000000,42.400002 100.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 48.000000)'></polygon>
+<polygon points='312.000000,48.000000 300.000000,42.400002 300.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 304.000000, 48.000000)'></polygon>
+<circle cx='208' cy='48' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='408' cy='48' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='352' y='52' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>head <span style="color:#f92672">=</span> new;
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 496 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,32 L 192,32' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 224,32' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 448,32' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 480,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 280,48 L 360,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 368,64 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,64 L 480,64' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 16,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 112,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 224,32 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,32 L 280,48' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 368,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 480,32 L 480,64' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,48.000000 100.000000,42.400002 100.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 48.000000)'></polygon>
+<polygon points='368.000000,48.000000 356.000000,42.400002 356.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 360.000000, 48.000000)'></polygon>
+<circle cx='464' cy='48' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='208' y='52' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='408' y='52' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>head <span style="color:#f92672">=</span> new;
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 496 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,32 L 192,32' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 224,32' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 448,32' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 480,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 208,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 280,48' fill='none' stroke='currentColor'></path>
+<path d='M 280,48 L 360,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 368,64 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,64 L 480,64' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 16,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 112,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 224,32 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,32 L 280,48' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 368,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 480,32 L 480,64' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,48.000000 100.000000,42.400002 100.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 48.000000)'></polygon>
+<polygon points='368.000000,48.000000 356.000000,42.400002 356.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 360.000000, 48.000000)'></polygon>
+<circle cx='208' cy='48' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='464' cy='48' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='408' y='52' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>head <span style="color:#f92672">=</span> new;
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 496 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 64,16 L 248,16' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 192,32' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 224,32' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 448,32' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 480,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,48 L 64,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 208,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 360,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 368,64 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,64 L 480,64' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 16,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,16 L 64,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 112,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 224,32 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 368,32 L 368,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,32 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 480,32 L 480,64' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,48.000000 100.000000,42.400002 100.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 48.000000)'></polygon>
+<polygon points='368.000000,48.000000 356.000000,42.400002 356.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 360.000000, 48.000000)'></polygon>
+<circle cx='208' cy='48' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='464' cy='48' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='408' y='52' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>我们不关心<code>new</code>指向哪里，上图和下面的图实际上是一样的</li>
+</ul>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 440 89"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 112,32 L 192,32' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 224,32' fill='none' stroke='currentColor'></path>
+<path d='M 312,32 L 392,32' fill='none' stroke='currentColor'></path>
+<path d='M 392,32 L 424,32' fill='none' stroke='currentColor'></path>
+<path d='M 16,48 L 104,48' fill='none' stroke='currentColor'></path>
+<path d='M 208,48 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 304,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,64 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,64 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,64 L 424,64' fill='none' stroke='currentColor'></path>
+<path d='M 16,32 L 16,48' fill='none' stroke='currentColor'></path>
+<path d='M 112,32 L 112,64' fill='none' stroke='currentColor'></path>
+<path d='M 192,32 L 192,64' fill='none' stroke='currentColor'></path>
+<path d='M 224,32 L 224,48' fill='none' stroke='currentColor'></path>
+<path d='M 224,48 L 224,64' fill='none' stroke='currentColor'></path>
+<path d='M 312,32 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 392,32 L 392,64' fill='none' stroke='currentColor'></path>
+<path d='M 424,32 L 424,64' fill='none' stroke='currentColor'></path>
+<polygon points='112.000000,48.000000 100.000000,42.400002 100.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 104.000000, 48.000000)'></polygon>
+<polygon points='312.000000,48.000000 300.000000,42.400002 300.000000,53.599998' fill='currentColor' transform='rotate(0.000000, 304.000000, 48.000000)'></polygon>
+<circle cx='208' cy='48' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='408' cy='48' r='6' stroke='currentColor' fill='#fff'></circle>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='352' y='52' fill='currentColor' style='font-size:1em'>1</text>
+</g>
+
+    </svg>
+  
+</div>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="链表的基本操作">链表的基本操作</h2>
+</section><section>
+<h2 id="链表遍历">链表遍历</h2>
+<ul>
+<li>通过前面的操作，我们实际上已经创建了一个包含两个节点的链表。</li>
+<li>重复在链表头插入新节点，即可创建任意长度的链表。</li>
+<li>在继续进行下去之前，先编写一个打印链表的函数，用以辅助验证程序的正确性。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>current <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (current <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, current<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>		current <span style="color:#f92672">=</span> current<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<h2 id="程序能简化吗">程序能简化吗？</h2>
+<ul>
+<li>实现链表遍历的代码很简单：控制<code>current</code>变量，每次指向链表中的下一个节点，直到尾部。</li>
+<li>真的需要<code>current</code>变量吗？能否把程序简化成如下的样子？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>简化后的程序正确与否，拿下面的程序测试一下就知道了：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	print_list(head);
+</span></span><span style="display:flex;"><span>	print_list(head);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<h2 id="插入节点">插入节点</h2>
+<ul>
+<li>之前我们已经完成了向链表中插入新节点的操作。因为这是一个基本且常用的操作，这里把它抽象为一个函数。</li>
+<li>假设变量<code>head</code>指向链表头节点（可以为NULL，表示链表中当前无节点），变量<code>new</code>指向待插入节点。</li>
+<li>函数名如果用<code>insert</code>可能有歧义（插入在<code>head</code>之前还是之后？）。为避免歧义，假设函数名为<code>push</code>。</li>
+</ul>
+</section><section>
+<ul>
+<li>函数这样写没问题吧？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>正确与否测试便知：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#f92672">*</span>new;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	new <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>		push(head, new);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	print_list(head);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<p>很遗憾，结果不正确</p>
+<h2 id="问题出在哪里">问题出在哪里？</h2>
+</section><section>
+<h2 id="要解决问题须先知道问题所在">要解决问题，须先知道问题所在</h2>
+<ul>
+<li>程序运行后只打印出了一个“1”。</li>
+<li>既然打印出“1”了，说明<code>push</code>被调用了。</li>
+<li>是<code>print_list</code>的问题还是<code>push</code>的问题？</li>
+<li>很自然，在<code>push</code>之后，<code>print_list</code>之前，增加一个检查点，观察程序状态是否符合预期，即可找出问题所在。</li>
+<li>最方便的工具就是用调试器跟踪调试。</li>
+</ul>
+</section><section>
+<h2 id="printf是穷人版的调试器"><code>printf</code>是穷人版的调试器</h2>
+<ul>
+<li>在程序的如下位置增加一个<code>printf</code>语句：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	new <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>	<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>		new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>		push(head, new);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>	printf(<span style="color:#e6db74">&#34;Head node: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>	print_list(head);
+</span></span></code></pre></div></section><section>
+<ul>
+<li>程序的运行结果如下。</li>
+<li>结果显示，<code>push</code>之后，<code>head</code>节点中的数据确实是1。</li>
+<li>据此可知，问题大抵出在<code>push</code>函数。</li>
+</ul>
+<pre tabindex="0"><code class="nohighlight" data-noescape>Head node: 1
+1
+</code></pre></section><section>
+<h2 id="重新审视push函数">重新审视<code>push</code>函数</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div><ul>
+<li><code>push</code>明明把<code>head</code>指向了新插入的节点，但为什么在调用<code>push</code>之后<code>head</code>中的值仍然是1呢？</li>
+</ul>
+</section><section>
+<ul>
+<li>故技重施，在<code>push</code>里再设个检查点：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>	printf(<span style="color:#e6db74">&#34;Head node(in push): %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>再次运行程序，得到的结果如下。<code>head</code>节点的内容从<code>push</code>函数返回之后神奇地发生变化了！</li>
+</ul>
+<pre tabindex="0"><code class="nohighlight" data-noescape>Head node(in push): 2
+Head node: 1
+1
+</code></pre><p>此<code>head</code>非彼<code>head</code>？</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="函数调用时的参数传递">函数调用时的参数传递</h2>
+</section><section>
+<ul>
+<li>要弄清楚问题所在，先要弄清楚C语言的参数传递规则。</li>
+<li>C语言的参数传递规则非常简单：<strong>传值</strong>。</li>
+<li>C语言<strong>不支持</strong>传引用。</li>
+<li>不要受其他语言影响，也不要受有些资料不准确的说法蛊惑。</li>
+<li>请参考<a href="https://stackoverflow.com/questions/2229498/passing-by-reference-in-c">Passing by reference in C</a></li>
+</ul>
+</section><section>
+<p><a href="https://en.wikipedia.org/wiki/The_C_Programming_Language"><img src="The_C_Programming_Language_First_Edition_Cover.svg" alt="The C Programming Language"></a></p>
+</section><section>
+<h2 id="c语言的发明者的说法">C语言的发明者的说法</h2>
+<blockquote>
+<p>In C, all function arguments are passed &ldquo;by value.&rdquo; This means that the called function is given the values of its arguments in temporary variables rather than the originals&hellip;
+in C the called function cannot directly alter a variable in the calling function; it can only alter its private, temporary copy.</p>
+</blockquote>
+</section><section>
+<blockquote>
+<p>在C中，所有函数参数都是传值的。这意味着被调用的函数被给与的不是原来的变量，而是临时性的变量，其中包含了参数的值&hellip;在C中，被调用函数不能直接修改调用者的变量；它只能修改它自己私有的临时性的版本。</p>
+</blockquote>
+</section><section>
+<ul>
+<li><code>push</code>的两个参数都是 <code>struct node *</code> 类型</li>
+<li>指针类型的变量的值即该变量中记录的地址</li>
+<li>调用<code>push</code>时，实际上是复制了两个指针变量</li>
+<li>虽然<code>main</code>和<code>push</code>里都有<code>head</code>和<code>new</code>变量，但它们实际上是不同的变量</li>
+</ul>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="参数传递过程详解">参数传递过程详解</h2>
+</section><section>
+<ul>
+<li>进入<code>push</code>时的状态</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 152,112' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='296' y='164' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>执行了“<code>new-&gt;next = head;</code>”语句之后的状态：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 336,112' fill='none' stroke='currentColor'></path>
+<path d='M 336,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 152,112' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,96' fill='none' stroke='currentColor'></path>
+<path d='M 336,128 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<path d='M 336,96 L 336,104' fill='none' stroke='currentColor'></path>
+<path d='M 336,120 L 336,128' fill='none' stroke='currentColor'></path>
+<path d='M 336,104 A 9,9 0 0,1 336,120' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>从<code>push</code>返回之前的状态</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> head;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 336,112' fill='none' stroke='currentColor'></path>
+<path d='M 336,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,96' fill='none' stroke='currentColor'></path>
+<path d='M 336,128 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<path d='M 336,96 L 336,104' fill='none' stroke='currentColor'></path>
+<path d='M 336,120 L 336,128' fill='none' stroke='currentColor'></path>
+<path d='M 336,104 A 9,9 0 0,1 336,120' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>从<code>push</code>返回之后的状态</li>
+</ul>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,48 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+</g>
+
+    </svg>
+  
+</div>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<p>那么，</p>
+<h2 id="如何修正这个错误呢">如何修正这个错误呢？</h2>
+</section><section>
+<ul>
+<li>看了刚才的状态图，我有一个冲动，想这样改，在<code>push</code>返回之后加一行：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	new <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>	<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>		new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>		push(head, new);
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>		head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>	printf(<span style="color:#e6db74">&#34;Head node: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>    print_list(head);
+</span></span></code></pre></div></section><section>
+<ul>
+<li>测试之后，得到了如下结果：</li>
+</ul>
+<pre tabindex="0"><code class="nohighlight" data-noescape>Head node(in push): 2
+Head node: 2
+2
+1
+</code></pre><p>喔！结果对了！</p>
+<p>但是，</p>
+<p><strong>不要这样做！</strong></p>
+</section><section>
+<h2 id="为什么">为什么？</h2>
+<ul>
+<li>这样做，让<code>push</code>函数的存在完全失去意义</li>
+<li>程序很难读懂</li>
+<li>程序容易出错，维护成本高</li>
+</ul>
+</section><section>
+<h2 id="正确方案">正确方案</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>这个方案受原来的<code>push</code>函数启发。原来的<code>push</code>函数虽然无法修改<code>main</code>函数里的<code>head</code>变量，也无法修改<code>main</code>函数里的<code>new</code>变量，但它修改了<code>new</code>变量指向的节点！</li>
+<li>这个修正的版本里，<code>push</code>函数里的<code>head</code>指向<code>main</code>里的<code>head</code>，而不是指向<code>main</code>里的<code>head</code>指向的节点</li>
+</ul>
+</section><section>
+<ul>
+<li>在<code>main</code>函数里调用<code>push</code>时应该这样调用，这样传递给<code>push</code>的不是<code>head</code>，而是指向<code>head</code>的指针，从而让<code>push</code>能够修改<code>head</code>：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>push(<span style="color:#f92672">&amp;</span>head, new);
+</span></span></code></pre></div></section><section>
+<ul>
+<li>进入<code>push</code>时的状态</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 56,80' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 40,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 40,112' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='64.000000,80.000000 52.000000,74.400002 52.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 56.000000, 80.000000)'></polygon>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='296' y='164' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>执行了语句“<code>new-&gt;next = *head;</code>”语句后的状态</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 56,80' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 168,80' fill='none' stroke='currentColor'></path>
+<path d='M 168,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 40,112 L 336,112' fill='none' stroke='currentColor'></path>
+<path d='M 336,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 40,112' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 168,80' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,96' fill='none' stroke='currentColor'></path>
+<path d='M 336,128 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='64.000000,80.000000 52.000000,74.400002 52.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 56.000000, 80.000000)'></polygon>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<path d='M 336,96 L 336,104' fill='none' stroke='currentColor'></path>
+<path d='M 336,120 L 336,128' fill='none' stroke='currentColor'></path>
+<path d='M 336,104 A 9,9 0 0,1 336,120' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>从<code>push</code>返回之前的状态</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex; background-color:#3c3d38"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div>
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 528,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 56,80' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 168,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 464,96' fill='none' stroke='currentColor'></path>
+<path d='M 40,112 L 152,112' fill='none' stroke='currentColor'></path>
+<path d='M 152,112 L 336,112' fill='none' stroke='currentColor'></path>
+<path d='M 336,112 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 448,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,128 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 464,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,192 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 448,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,208 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 376,224 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 40,80 L 40,112' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 152,96' fill='none' stroke='currentColor'></path>
+<path d='M 152,128 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 152,192' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 168,80' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,96' fill='none' stroke='currentColor'></path>
+<path d='M 336,128 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 376,48 L 376,112' fill='none' stroke='currentColor'></path>
+<path d='M 376,112 L 376,192' fill='none' stroke='currentColor'></path>
+<path d='M 376,192 L 376,224' fill='none' stroke='currentColor'></path>
+<path d='M 432,96 L 432,112' fill='none' stroke='currentColor'></path>
+<path d='M 432,112 L 432,128' fill='none' stroke='currentColor'></path>
+<path d='M 432,176 L 432,192' fill='none' stroke='currentColor'></path>
+<path d='M 432,192 L 432,208' fill='none' stroke='currentColor'></path>
+<path d='M 464,96 L 464,128' fill='none' stroke='currentColor'></path>
+<path d='M 464,176 L 464,208' fill='none' stroke='currentColor'></path>
+<path d='M 528,48 L 528,224' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='64.000000,80.000000 52.000000,74.400002 52.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 56.000000, 80.000000)'></polygon>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='112' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='448' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<path d='M 152,96 L 152,104' fill='none' stroke='currentColor'></path>
+<path d='M 152,120 L 152,128' fill='none' stroke='currentColor'></path>
+<path d='M 152,104 A 9,9 0 0,1 152,120' fill='none' stroke='currentColor'></path>
+<path d='M 336,96 L 336,104' fill='none' stroke='currentColor'></path>
+<path d='M 336,120 L 336,128' fill='none' stroke='currentColor'></path>
+<path d='M 336,104 A 9,9 0 0,1 336,120' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='68' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='416' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='496' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='504' y='116' fill='currentColor' style='font-size:1em'>d</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>从<code>push</code>返回之后的状态</li>
+</ul>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 568 265"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 552,0' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 336,48' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 96,64' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 280,64' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 312,64' fill='none' stroke='currentColor'></path>
+<path d='M 80,80 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 152,80' fill='none' stroke='currentColor'></path>
+<path d='M 168,80 L 192,80' fill='none' stroke='currentColor'></path>
+<path d='M 64,96 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,96 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,96 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 96,144' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 280,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 312,144' fill='none' stroke='currentColor'></path>
+<path d='M 80,160 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 152,160 L 192,160' fill='none' stroke='currentColor'></path>
+<path d='M 296,160 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 64,176 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 200,176 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 0,240 L 552,240' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,240' fill='none' stroke='currentColor'></path>
+<path d='M 64,64 L 64,96' fill='none' stroke='currentColor'></path>
+<path d='M 64,144 L 64,176' fill='none' stroke='currentColor'></path>
+<path d='M 96,64 L 96,80' fill='none' stroke='currentColor'></path>
+<path d='M 96,80 L 96,96' fill='none' stroke='currentColor'></path>
+<path d='M 96,144 L 96,160' fill='none' stroke='currentColor'></path>
+<path d='M 96,160 L 96,176' fill='none' stroke='currentColor'></path>
+<path d='M 152,80 L 152,160' fill='none' stroke='currentColor'></path>
+<path d='M 168,48 L 168,80' fill='none' stroke='currentColor'></path>
+<path d='M 200,64 L 200,96' fill='none' stroke='currentColor'></path>
+<path d='M 200,144 L 200,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,64 L 280,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 312,64 L 312,96' fill='none' stroke='currentColor'></path>
+<path d='M 312,144 L 312,160' fill='none' stroke='currentColor'></path>
+<path d='M 312,160 L 312,176' fill='none' stroke='currentColor'></path>
+<path d='M 336,48 L 336,160' fill='none' stroke='currentColor'></path>
+<path d='M 552,0 L 552,240' fill='none' stroke='currentColor'></path>
+<polygon points='200.000000,80.000000 188.000000,74.400002 188.000000,85.599998' fill='currentColor' transform='rotate(0.000000, 192.000000, 80.000000)'></polygon>
+<polygon points='200.000000,160.000000 188.000000,154.399994 188.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 192.000000, 160.000000)'></polygon>
+<circle cx='80' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='80' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='80' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='160' r='6' stroke='currentColor' fill='currentColor'></circle>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='164' fill='currentColor' style='font-size:1em'>2</text>
+</g>
+
+    </svg>
+  
+</div>
+</section><section>
+<ul>
+<li>整理后的完整代码如下，运行后应该可以得到预期的结果：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head, <span style="color:#f92672">*</span>new;
+</span></span><span style="display:flex;"><span>	head <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>		head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	new <span style="color:#f92672">=</span> (<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> node));
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>		push(<span style="color:#f92672">&amp;</span>head, new);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>	print_list(head);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+</section>
+
+<section data-noprocess data-shortcode-slide
+      data-transition="zoom">
+  
+<h1 id="让我们的程序看起来更专业">让我们的程序看起来更专业</h1>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="typedef">typedef</h2>
+</section><section>
+<ul>
+<li><code>struct node</code>是我们的核心数据结构，经常用到。利用C的<code>typedef</code>关键字可以让程序更精练、更易读。</li>
+<li>之后凡用到<code>struct node</code>的地方均可用<code>node_t</code>替代。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node node_t;
+</span></span></code></pre></div></section><section>
+<ul>
+<li>还有一种更精炼的写法：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} node_t;
+</span></span></code></pre></div>
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="const">const</h2>
+</section><section>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>head);
+</span></span></code></pre></div><ul>
+<li><code>print_list</code>函数原型如上。定义了<code>node_t</code>之后，可以写成这样子：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(node_t <span style="color:#f92672">*</span>head);
+</span></span></code></pre></div><ul>
+<li>我们知道，<code>print_list</code>是有能力修改<code>head</code>指向的节点的，但<code>print_list</code>函数并不需要这种能力。我们可以清楚地表明这一点，从而让程序更加容易理解和维护：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">*</span>head);
+</span></span></code></pre></div></section><section>
+<p><code>push</code>的原型是否可以修改，也加上<code>const</code>关键字呢？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">**</span>head, node_t <span style="color:#f92672">*</span>new);
+</span></span></code></pre></div><ul>
+<li>答案是不行，因为<code>push</code>要修改<code>new</code>和<code>head</code>指向的数据。</li>
+</ul>
+</section><section>
+<p>在程序中添加<code>const</code>关键字这样的修饰</p>
+<p>并非功能上的需要</p>
+<p>目的是在编译器的帮助下</p>
+<p>确保你实际表达的和你想要表达的意思一致</p>
+<p>这也有助于提高程序的可读性</p>
+<p>因为函数实际做的在函数原型已经部分表达了出来</p>
+<p>相当于为程序写了高质量的文档</p>
+</section><section>
+<ul>
+<li>整理后的程序：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>} node_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>		printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(node_t <span style="color:#f92672">**</span> head, node_t <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>	node_t <span style="color:#f92672">*</span>head, <span style="color:#f92672">*</span>new;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>	head <span style="color:#f92672">=</span> (node_t <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(node_t));
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>	<span style="color:#66d9ef">if</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>		head<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>		head<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>	new <span style="color:#f92672">=</span> (node_t <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(node_t));
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>	<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>		new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>		push(<span style="color:#f92672">&amp;</span>head, new);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>	}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>		exit(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>	print_list(head);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>}
+</span></span></code></pre></div>
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="释放动态分配的内存">释放动态分配的内存</h2>
+</section><section>
+<ul>
+<li>之前一直关注程序的基本功能，没有释放动态分配的内存。现在写一个专门的函数完成这件事。</li>
+<li>模仿<code>print_list</code>这样写可以吗？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(node_t <span style="color:#f92672">*</span> head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		free(head);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>刚才的程序有错，这个程序同样有错。错误原因请自行分析，如有疑问请看<a href="/hugo-classroom/slides/c/memory-layout/">内存布局</a>相关讲解。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(node_t <span style="color:#f92672">*</span> head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		free(head);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>正确的程序：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(node_t <span style="color:#f92672">*</span> head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		next <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>		free(head);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li><code>free_list</code>的函数原型可以这样写吗？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">*</span>head);
+</span></span></code></pre></div>
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="让程序的组织更显有序">让程序的组织更显有序</h2>
+</section><section>
+<ul>
+<li>随着程序功能的完善，程序的规模会越来越大，这时程序的有序组织就显得尤为重要。</li>
+<li>这里，我们可以把实现链表基本功能的代码和使用这些功能的代码分开。</li>
+</ul>
+</section><section>
+<ul>
+<li>创建一个名为<code>list.h</code>的文件，里面写入如下内容：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> node {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> data;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">struct</span> node <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} node_t;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">*</span>head);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(node_t <span style="color:#f92672">**</span> head, node_t <span style="color:#f92672">*</span>new);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(node_t <span style="color:#f92672">*</span> head);
+</span></span></code></pre></div></section><section>
+<ul>
+<li>创建一个名为<code>list.c</code>的文件，里面写入如下内容：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;list.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print_list</span>(<span style="color:#66d9ef">const</span> node_t <span style="color:#f92672">*</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;List:&#34;</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		printf(<span style="color:#e6db74">&#34; %d&#34;</span>, head<span style="color:#f92672">-&gt;</span>data);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">push</span>(node_t <span style="color:#f92672">**</span> head, node_t <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> new;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">free_list</span>(node_t <span style="color:#f92672">*</span> head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		next <span style="color:#f92672">=</span> head<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>		free(head);
+</span></span><span style="display:flex;"><span>		head <span style="color:#f92672">=</span> next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>创建一个名为<code>main.c</code>的文件，里面写入如下内容：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;list.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>		node_t <span style="color:#f92672">*</span>new <span style="color:#f92672">=</span> (node_t <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(node_t));
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (new <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>			new<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>			new<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>			push(<span style="color:#f92672">&amp;</span>head, new);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	print_list(head);
+</span></span><span style="display:flex;"><span>	free_list(head);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>用如下的命令建造程序并运行，将打印出10各倒序排列的数字：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>$ gcc main.c list.c -o list
+</span></span><span style="display:flex;"><span>$ ./list
+</span></span></code></pre></div><pre tabindex="0"><code class="nohighlight" data-noescape>List: 9 8 7 6 5 4 3 2 1 0
+</code></pre>
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="完善链表基本操作">完善链表基本操作</h2>
+</section><section>
+<ul>
+<li><code>push</code>的逆操作<code>pop</code>:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span>node_t <span style="color:#f92672">*</span><span style="color:#a6e22e">pop</span>(node_t <span style="color:#f92672">**</span>head)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>result <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (<span style="color:#f92672">*</span>head <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>head)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>在链表中删除包含指定数据的第一个节点：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span>(node_t <span style="color:#f92672">**</span>head, <span style="color:#66d9ef">int</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>prev <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>	node_t <span style="color:#f92672">*</span>curr <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>head;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> (cuur <span style="color:#f92672">!=</span> NULL) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (curr<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">==</span> data) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> (prev <span style="color:#f92672">!=</span> NULL)
+</span></span><span style="display:flex;"><span>				prev<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> curr<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#f92672">*</span>head <span style="color:#f92672">=</span> curr<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		prev <span style="color:#f92672">=</span> curr;
+</span></span><span style="display:flex;"><span>		curr <span style="color:#f92672">=</span> curr<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>在指定节点之后插入一个节点，请自行补全代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insert_after</span>(node_t <span style="color:#f92672">*</span>prev, node_t <span style="color:#f92672">*</span>new)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section><section>
+<ul>
+<li>链表还应该具有哪些基本操作？请补充完善。</li>
+<li>函数实现之后，应写出完善的测试代码，保证程序的正确性。</li>
+</ul>
+
+</section>
+</section><section>
+<h2 id="happy-hacking">Happy Hacking</h2>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/hugo-classroom/reveal-hugo/object-assign.js></script>
+
+<a href="/hugo-classroom/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">null</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/hugo-classroom/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/hugo-classroom/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    Reveal.addEventListener('slidechanged', render);
+    Reveal.addEventListener('ready', render);
+  </script>
+
+    
+    
+  </body>
+</html>

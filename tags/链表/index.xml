@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>链表 on H@pPY</title>
+    <link>http://yangwujie.github.io/hugo-classroom/tags/%E9%93%BE%E8%A1%A8/</link>
+    <description>Recent content in 链表 on H@pPY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 31 May 2022 18:24:50 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/%E9%93%BE%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>链表</title>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/c/linked-lists/</link>
+      <pubDate>Tue, 31 May 2022 18:24:50 +0800</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/linked-lists/</guid>
+      <description>C语言的
+链表 及函数的参数传递
+链表 vs 数组 数组长度固定，而链表长度可动态变化。 数组可以随机存取，而链表只能顺序存取。 链表中的数据，可以根据需要插入或删除。 链表涉及大量指针操作，使用难度较高。 存储同样数量的数据，链表的时间和空间开销都比数组大。 链表的基本概念 把需要存储的数据和一个额外的指针组合成同一个数据结构，然后让指针指向下一个这样的数据结构 这样的数据结构，一个接一个依次相连，就可以组成任意长度的链表 d a t a d a t a d a t a 定义链表节点 struct node { int data; struct node *next; }; struct node *head; head = (struct node *)malloc(sizeof(struct node)); if (head != NULL) { head-&amp;gt;data = 1; head-&amp;gt;next = NULL; } h e a d 1 struct node *new; new = (struct node *)malloc(sizeof(struct node)); if (new !</description>
+    </item>
+    
+  </channel>
+</rss>

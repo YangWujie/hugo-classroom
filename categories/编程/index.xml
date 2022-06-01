@@ -9,15 +9,15 @@
     <lastBuildDate>Mon, 30 May 2022 09:19:36 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>File</title>
-      <link>http://yangwujie.github.io/hugo-classroom/slides/c/file/</link>
+      <link>http://yangwujie.github.io/hugo-classroom/slides/c/files/</link>
       <pubDate>Mon, 30 May 2022 09:19:36 +0800</pubDate>
       
-      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/file/</guid>
-      <description>C文件输入输出   文件无处不住，这包括你的头文件，你的源程序文件，编译生成的目标文件，链接得到的可执行文件 不涉及文件操作的C程序几乎不存在 即便那个最简单的Hello World程序也涉及文件操作，只不过穿了个马甲   printf就是个穿了马甲的文件操作
-#include &amp;lt;stdio.h&amp;gt; int main() { 	printf(&amp;#34;Hello World!\n&amp;#34;); 	return 0; }  马甲之下的真相：
-#include &amp;lt;stdio.h&amp;gt; int main() { 	fprintf(stdout, &amp;#34;Hello World!\n&amp;#34;); 	return 0; } 这个程序和原来的Hello World程序等价。
- 标准输出设备  stdout即标准输出设备，程序运行时系统自动为你打开 除了stdout之外，系统还自动打开了stdin（标准输入设备）和stderr（标准错误设备） 文件、设备、流几个术语在某些场合下经常互换使用   int printf ( const char *format, ... ); int fprintf( FILE *stream, const char *format, ... ); 看了它们的函数原型，了解它们为什么有那样的名字了吧？
- stream − This is the pointer to a FILE object that identifies the stream.</description>
+      <guid>http://yangwujie.github.io/hugo-classroom/slides/c/files/</guid>
+      <description>C文件输入输出 文件无处不住，这包括你的头文件，你的源程序文件，编译生成的目标文件，链接得到的可执行文件 不涉及文件操作的C程序几乎不存在 即便那个最简单的Hello World程序也涉及文件操作，只不过穿了个马甲 printf就是个穿了马甲的文件操作
+#include &amp;lt;stdio.h&amp;gt; int main() { printf(&amp;#34;Hello World!\n&amp;#34;); return 0; } 马甲之下的真相：
+#include &amp;lt;stdio.h&amp;gt; int main() { fprintf(stdout, &amp;#34;Hello World!\n&amp;#34;); return 0; } 这个程序和原来的Hello World程序等价。
+标准输出设备 stdout即标准输出设备，程序运行时系统自动为你打开 除了stdout之外，系统还自动打开了stdin（标准输入设备）和stderr（标准错误设备） 文件、设备、流几个术语在某些场合下经常互换使用 int printf ( const char *format, ... ); int fprintf( FILE *stream, const char *format, ... ); 看了它们的函数原型，了解它们为什么有那样的名字了吧？
+stream − This is the pointer to a FILE object that identifies the stream. format − This is the C string that contains the text to be written to the stream.</description>
     </item>
     
   </channel>

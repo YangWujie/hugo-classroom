@@ -6,7 +6,7 @@
     <description>Recent content on H@pPY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 30 May 2022 17:54:23 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 May 2022 18:24:50 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mermaid测试贴</title>
       <link>http://yangwujie.github.io/hugo-classroom/posts/2022/05/mermaid%E6%B5%8B%E8%AF%95%E8%B4%B4/</link>
@@ -252,7 +252,7 @@
       
       <guid>http://yangwujie.github.io/hugo-classroom/slides/template-example/continued/</guid>
       <description> Templates can be specified in config.toml as well, for reusability across multiple presentations.
-[params.reveal_hugo.templates.grey] background = &amp;#34;#424242&amp;#34; transition = &amp;#34;convex&amp;#34;  THE END </description>
+[params.reveal_hugo.templates.grey] background = &amp;#34;#424242&amp;#34; transition = &amp;#34;convex&amp;#34; THE END </description>
     </item>
     
     <item>
@@ -261,8 +261,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/projects/classroom/</guid>
-      <description>Description&amp;hellip;
-采用的技术  github hugo GoAT  </description>
+      <description> Description&amp;hellip;
+采用的技术 github hugo GoAT </description>
     </item>
     
     <item>
@@ -271,8 +271,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://yangwujie.github.io/hugo-classroom/projects/dpt/</guid>
-      <description>Description&amp;hellip;
-采用的技术  DPDK Packet mmap Tuntap  </description>
+      <description> Description&amp;hellip;
+采用的技术 DPDK Packet mmap Tuntap </description>
     </item>
     
     <item>
