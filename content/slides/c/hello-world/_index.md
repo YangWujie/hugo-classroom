@@ -194,7 +194,7 @@ int main()
 ---
 
 预处理
-```goat {font="14px"}
+```goat {font="12px"}
                     .-------.  
                    |         | 
                    |  .h文件   | 
@@ -258,7 +258,7 @@ Disassembly of section .text:
 ---
 
 编译
-```goat {font="14px"}
+```goat {font="12px"}
   .-------.       .-----------.        .-------.  
  |         |      |           |       |         | 
  |  .c文件   +----->|    编译器    +------>|  目标代码   | 
@@ -394,7 +394,7 @@ Function foo is called.
 ---
 
 链接
-```goat {font="14px"}
+```goat {font="12px"}
                      .-------.  
                     |         | 
                     |  运行时库   | 
