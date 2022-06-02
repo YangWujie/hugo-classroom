@@ -1,0 +1,21 @@
+{{ $width := .Attributes.width }}
+{{ $height := .Attributes.height }}
+{{ $font := .Attributes.font }}
+{{ $class := .Attributes.class | default "" }}
+
+<div {{ if $font }}{{ with $font }}style="font-size:{{ . }}"{{ end }}{{ end }} class="goat svg-container {{ $class }}">
+  {{ with diagrams.Goat .Inner }}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      {{ if or $width $height }}
+        {{ with $width }}width="{{ . }}"{{ end }}
+        {{ with $height }}height="{{ . }}"{{ end }}
+        viewBox="0 0 {{ .Width }} {{ .Height }}"
+      {{ else }}
+        viewBox="0 0 {{ .Width }} {{ .Height }}"
+      {{ end }}>
+      {{ .Inner }}
+    </svg>
+  {{ end }}
+</div>
