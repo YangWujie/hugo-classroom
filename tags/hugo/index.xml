@@ -6,7 +6,16 @@
     <description>Recent content in Hugo on H@pPY</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 May 2022 16:30:51 +0800</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jun 2022 12:41:37 +0000</lastBuildDate><atom:link href="http://yangwujie.github.io/hugo-classroom/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yoga</title>
+      <link>http://yangwujie.github.io/hugo-classroom/posts/2022/06/yoga/</link>
+      <pubDate>Sun, 05 Jun 2022 12:41:37 +0000</pubDate>
+      
+      <guid>http://yangwujie.github.io/hugo-classroom/posts/2022/06/yoga/</guid>
+      <description>&lt;p&gt;概要&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Hello World</title>
       <link>http://yangwujie.github.io/hugo-classroom/slides/c/hello-world/</link>
